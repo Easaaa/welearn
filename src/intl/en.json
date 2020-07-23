@@ -1,0 +1,76 @@
+{
+  "title": "Pokerify",
+  "description": "Kick off your next, great Gatsby project with this default-starter-intl. This barebones starter ships with the main Gatsby configuration files you might need.",
+  "author": "Leonardo Tononi for pokerify.inc",
+
+  "indexPage": {
+    "navbar": {
+      "demo": "Demo",
+      "pricing": "Pricing",
+      "store": "Store",
+      "school": "School"
+    },
+    "header": {
+      "title": "Optimize your <code>poker business</code> and create a <code>money</code> machine.",
+      "subTitle": "We built a powerful tool for your school, it will be so easy that you can't believe it.",
+      "startBtn": "<code>Start</code> today",
+      "demoBtn": "View demo",
+      "watchBtn": "Watch video"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subTitle": "It's easy",
+      "stepOne": {
+        "title": "Dashboard Administration",
+        "subTitle": "Step 1",
+        "text": "Set up your school and create access to your materials for your students, see stats and other kind of stuff."
+      },
+      "stepTwo": {
+        "title": "Upload Content",
+        "subTitle": "Step 2",
+        "text": "It’s so easy, you can upload your videos or courses in less then 5 minutes."
+      },
+      "stepThree": {
+        "title": "School Web Application",
+        "subTitle": "Step 3",
+        "text": "With a cool style your students / clients can enjoy your content on our platform, open to every one you want, but it’s only up to you. You are the boss!"
+      }
+    },
+    "dashboard": {
+      "title": "The <code> </code> Dashboard",
+      "subTitle": "Focus on what matters",
+      "text": "We want help you grow your business and keep track of every details. Try new ways of manage your money, with a beautiful design, look at numbers were never so delightful."
+    },
+    "product": {
+      "title": "The <code> </code> Product",
+      "subTitle": "Just cool",
+      "text": "Is more then you think, with many tools to improve the user experience and the learning process, is rich of amazing content and awesome interaction."
+    },
+    "development": {
+      "title": "A Lot <code> </code> In Development",
+      "subTitle": "We are on fire",
+      "text": "We are constantly working to deliver new features, collaborating with our community to understand how to satisfy your needs.  Write us if you have suggestions and feedback, your opinion is important."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "payMonthly": "Pay Monthly",
+      "payAnnually": "Pay Annually",
+      "selectPlan": "Select Plan",
+      "type": {
+        "gold": "Gold",
+        "goldText": "Up to <code>3</code> students",
+        "month": "month",
+        "year": "year",
+        "diamond": "Diamond",
+        "diamondText": ""
+      }
+    },
+    "contact": {
+      "title": "Any questions?",
+      "subTitle": "Compile the form and we'll contact you as soon as possible.",
+      "fullName": "Full name",
+      "email": "E-mail",
+      "btn": "Send"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "pokerify",
+  "description": "Kick off your next, great Gatsby project with this default-starter-intl. This barebones starter ships with the main Gatsby configuration files you might need.",
+  "author": "@wiziple",
+
+  "indexPage": {
+    "header": "Optimice su <span>negocio de póker</span>  y cree una máquina de <span> dinero.</span>"
+  }
+}

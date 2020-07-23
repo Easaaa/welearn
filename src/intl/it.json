@@ -1,0 +1,9 @@
+{
+  "title": "Gatsby English",
+  "description": "Kick off your next, great Gatsby project with this default-starter-intl. This barebones starter ships with the main Gatsby configuration files you might need.",
+  "author": "@wiziple",
+
+  "indexPage": {
+    "header": "Ottimizza il tuo <span>poker business</span>  e crea la tua nuova stampante di <span>soldi.</span> "
+  }
+}

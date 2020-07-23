@@ -1,0 +1,6 @@
+export const HOME = "/app/home"
+export const LANDING = "/"
+export const PROFILE = "/app/profile"
+export const VIDEOS = "/app/videos"
+export const COURSES = "/app/courses"
+export const PASSWORD_FORGET = "/pw-forget"
