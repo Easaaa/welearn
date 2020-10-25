@@ -21,7 +21,6 @@ export const Logo = styled.div`
   position: relative;
 
   h1 {
-    font-family: "Righteous";
     font-size: var(--font-6);
     font-weight: 600;
     position: relative;

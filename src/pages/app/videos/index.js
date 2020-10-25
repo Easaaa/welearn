@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { SchoolContext } from "src/providers/school-provider"
+import { SchoolContext } from "../../../providers/school-provider"
 import { gql, useQuery } from "@apollo/client"
 
 import { SearchBar } from "../../../components/atoms/search-bar"

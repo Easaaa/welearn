@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react"
-import { FirebaseContext } from "src/lib/firebase"
+import { FirebaseContext } from "../../../lib/firebase"
 import { graphql } from "gatsby"
 
 import { PageLoader } from "components/atoms/page-loader"
