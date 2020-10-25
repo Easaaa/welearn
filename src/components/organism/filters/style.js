@@ -12,9 +12,9 @@ export const GeneralFilters = styled.form`
   grid-gap: var(--space-md);
   position: absolute;
   top: 100px;
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
   padding: var(--space-md);
-  border: 1px solid var(--main-white);
+  border: 1px solid var(--secondary800);
   border-radius: 10px;
   z-index: 99;
 
@@ -22,13 +22,14 @@ export const GeneralFilters = styled.form`
     background: transparent;
     border: none;
     color: var(--mainWhite);
-    border: 1px solid var(--main-white);
+    border: 1px solid var(--secondary800);
+    box-shadow: var(--shadow-xs);
     cursor: pointer;
     width: 220px;
     height: 45px;
     border-radius: 10px;
     margin-top: var(--space-md);
-    text-transform: uppercase;
+    text-transform: capitalize;
     transition: box-shadow 50ms ease-in;
     font-weight: 600;
   }
@@ -40,15 +41,16 @@ export const Filter = styled.div`
   grid-gap: var(--space-xs);
 
   label {
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 500;
     font-size: var(--font-4);
   }
 
   select {
     width: 220px;
-    border: 2px solid var(--cleanBlack);
-    background-color: var(--lightCleanBlack);
-    color: var(--main-white);
+    border: 2px solid var(--primary800);
+    background-color: var(--primary800);
+    color: var(--secondary800);
     height: 50px;
     background-image: none;
     font-size: var(--font-2);
@@ -64,7 +66,7 @@ export const Filter = styled.div`
     }
 
     &:hover {
-      border: 2px solid var(--main-white);
+      box-shadow: var(--shadow-xs);
     }
   }
 `

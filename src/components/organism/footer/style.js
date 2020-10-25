@@ -2,7 +2,8 @@ import styled from "styled-components"
 import { device } from "styles/mediaQuery"
 
 export const StyledFooter = styled.footer`
-  background: var(--lightCleanBlack);
+  background: var(--secondary800);
+  color: var(--primary800);
   padding-bottom: var(--space-xl);
 
   @media ${device.laptop} {

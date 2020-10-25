@@ -53,14 +53,14 @@ export const CoursePreview = ({ item }) => {
         </h1>
         <ProgressLabel
           progress={progressBar}
-          fillColor="var(--cleanBlack)"
-          trackColor="var(--lightCleanBlack)"
+          fillColor="var(--primary800)"
+          trackColor="var(--primary800)"
           progressColor="var(--orange)"
           progressWidth={8}
           trackWidth={5}
           trackBorderWidth={3}
           stroke="var(--orange)"
-          trackBorderColor="var(--cleanBlack)"
+          trackBorderColor="var(--primary800)"
           cornersWidth={5}
           size={80}
           text={`${progressBar}%`}

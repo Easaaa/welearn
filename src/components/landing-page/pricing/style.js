@@ -64,7 +64,7 @@ export const ToggleSub = styled.div`
       position: absolute;
       width: 80px;
       height: 20px;
-      background-color: var(--dirty-white);
+      background-color: var(--primary800);
       color: var(--main-blue);
       bottom: 2em;
       right: 0;
@@ -87,7 +87,7 @@ export const PriceTable = styled.div`
   display: grid;
   grid-auto-flow: row;
   grid-gap: var(--space-md);
-  background-color: var(--cleanBlack);
+  background-color: var(--primary800);
   max-width: 500px;
   margin: var(--space-xl) auto;
 
@@ -142,9 +142,9 @@ export const Price = styled.div`
 
 export const SelectBtn = styled.button`
   background-color: ${({ highlight }) =>
-    (highlight && "var(--main-red)") || "var(--lightCleanBlack)"};
+    (highlight && "var(--main-red)") || "var(--primary800)"};
   border: none;
-  color: var(--main-white);
+  color: var(--secondary800);
   height: 40px;
   border-radius: 10px;
   cursor: pointer;

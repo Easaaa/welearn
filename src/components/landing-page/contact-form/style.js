@@ -47,7 +47,7 @@ export const FormWrapper = styled.section`
   display: grid;
   grid-gap: var(--space-lg);
   place-content: center;
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
 `
 
 export const StyledForm = styled.form`
@@ -67,7 +67,7 @@ export const StyledForm = styled.form`
     width: 300px;
     height: 55px;
     background-color: var(--darkCleanBlack);
-    border: 4px solid var(--cleanBlack);
+    border: 4px solid var(--primary800);
     box-shadow: var(--shadow-xs);
     border-radius: 10px;
 
@@ -82,7 +82,7 @@ export const StyledForm = styled.form`
 
     &:hover {
       background-color: transparent;
-      border: 1px solid var(--main-white);
+      border: 1px solid var(--secondary800);
     }
   }
 
@@ -90,10 +90,10 @@ export const StyledForm = styled.form`
     width: 150px;
     margin: 0 auto;
     height: 50px;
-    background-color: var(--main-red);
+    background-color: var(--secondary800);
     border-radius: 10px;
-    color: var(--main-white);
-    text-transform: uppercase;
+    color: var(--primary800);
+    text-transform: capitalize;
     border: none;
     cursor: pointer;
     transition: background-color 50ms ease-in;

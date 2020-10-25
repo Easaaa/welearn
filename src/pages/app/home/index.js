@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from "react"
-import { FirebaseContext } from "lib/firebase"
+import { FirebaseContext } from "src/lib/firebase"
 import { graphql } from "gatsby"
 
 import { PageLoader } from "components/atoms/page-loader"
 
-import { Layout } from "components/organism/layout/"
+import { Layout } from "components/organism/layout"
 import { Login } from "components/organism/login"
 import { Home } from "components/organism/home"
 

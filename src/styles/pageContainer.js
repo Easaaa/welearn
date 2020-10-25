@@ -4,9 +4,9 @@ import { device } from "styles/mediaQuery"
 export const PageContainer = styled.section`
   position: relative;
   margin-top: var(--space-xxl);
-  /* background-color: var(--lightCleanBlack);
+  /* background-color: var(--primary800);
   box-shadow: var(--shadow-xs);
-  border: 5px solid var(--cleanBlack); */
+  border: 5px solid var(--primary800); */
   display: grid;
   grid-auto-flow: row;
 

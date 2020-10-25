@@ -68,10 +68,10 @@ export const BtnsWrapper = styled.div`
   button {
     width: 120px;
     height: 60px;
-    background-color: var(--cleanBlack);
+    background-color: var(--primary800);
     border: none;
     box-shadow: var(--shadow-xs);
-    color: var(--main-white);
+    color: var(--secondary800);
     border-radius: 5px;
     padding: 0;
     cursor: pointer;

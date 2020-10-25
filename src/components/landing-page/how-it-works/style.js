@@ -70,7 +70,7 @@ export const ColImg = styled.div`
   position: relative;
   svg {
     box-shadow: var(--shadow-xs);
-    background-color: var(--cleanBlack);
+    background-color: var(--primary800);
     border-radius: 5px;
     padding: var(--space-md);
     width: 80px;
@@ -103,7 +103,7 @@ export const ColTxt = styled.div`
   }
 
   p:last-of-type {
-    color: var(--dirty-white);
+    color: var(--primary800);
   }
 
   @media ${device.laptop} {

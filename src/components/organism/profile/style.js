@@ -44,9 +44,9 @@ export const ProfileContainer = styled.section`
     }
 
     input {
-      background-color: var(--cleanBlack);
+      background-color: var(--primary800);
       border: none;
-      color: var(--main-white);
+      color: var(--secondary800);
       height: 45px;
       width: 100%;
       border-radius: 10px;

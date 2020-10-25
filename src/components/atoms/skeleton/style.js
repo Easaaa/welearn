@@ -7,7 +7,7 @@ export const CardContainer = styled.section`
   position: relative;
   font-size: var(--font-4);
   border-radius: 10px;
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
 
   h1 {
     position: absolute;

@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
 export const DirButton = styled.button`
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
   border: none;
   cursor: pointer;
   outline: none;
 
   svg {
-    color: var(--main-white);
+    color: var(--secondary800);
     width: 50px;
     height: 50px;
     padding: var(--space-xs);
@@ -30,7 +30,7 @@ export const CarouselPaginationWrapper = styled.div`
 export const Circle = styled.div`
   width: 10px;
   height: 10px;
-  background-color: var(--cleanBlack);
+  background-color: var(--primary800);
   border-radius: 50%;
   box-shadow: ${({ isActivePage }) =>
     isActivePage === true

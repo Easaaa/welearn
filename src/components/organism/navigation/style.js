@@ -9,7 +9,7 @@ export const NavWrapper = styled.nav`
   place-content: center;
   align-items: start;
   padding: var(--space-md);
-  background: var(--cleanBlack);
+  background: var(--primary800);
 
   @media ${device.tablet} {
     grid-template-columns: 1fr 3fr;
@@ -21,6 +21,7 @@ export const Logo = styled.div`
   position: relative;
 
   h1 {
+    font-family: "Righteous";
     font-size: var(--font-6);
     font-weight: 600;
     position: relative;
@@ -32,7 +33,7 @@ export const Logo = styled.div`
   h1 {
     &:after {
       letter-spacing: 0;
-      content: "by pokerify";
+      content: "Decentralized";
       position: absolute;
       color: var(--main-red);
       font-size: var(--font-3);
@@ -45,7 +46,6 @@ export const Logo = styled.div`
       h1 {
         font-style: italic;
         &:after {
-            font-family: "Righteous";
             letter-spacing: 0;
             content: "beta";
             position: absolute;
@@ -147,14 +147,14 @@ export const DropDownMenu = styled.div`
   position: absolute;
   top: 75px;
   left: 0;
-  /* box-shadow: var(--shadow-xs); */
+  box-shadow: var(--shadow-xs);
   width: 200px;
   display: grid;
   place-content: center;
   border-radius: 10px;
   padding: var(--space-md) 0;
   z-index: 100;
-  background-color: var(--cleanBlack);
+  background-color: var(--primary800);
 
   h5 {
     position: relative;

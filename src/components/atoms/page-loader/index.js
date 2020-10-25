@@ -14,7 +14,7 @@ const SpinnerWrapper = styled.div`
     width: 75px;
     height: 75px;
     /* border: 1px solid #f25f4c; */
-    background: var(--lightCleanBlack);
+    background: var(--primary800);
 
     div {
       &:before {
@@ -34,7 +34,7 @@ const SpinnerStyled = styled.div`
 
   div {
     position: absolute;
-    border: 4px solid var(--main-white);
+    border: 4px solid var(--secondary800);
     opacity: 1;
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -62,7 +62,7 @@ const SpinnerStyled = styled.div`
 
 export const PageLoader = () => (
   <SpinnerWrapper>
-    <Spinner name="folding-cube" color="var(--main-white)" className="cube" />
+    <Spinner name="folding-cube" color="var(--secondary800)" className="cube" />
     {/* <SpinnerStyled>
       <div></div>
       <div></div>

@@ -5,7 +5,7 @@ export const CoursePreviewContainer = styled.section`
   padding: var(--space-xl) var(--space-md);
   margin-top: var(--space-xxl);
   /* box-shadow: var(--shadow-xs); */
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
   border-radius: 10px;
   max-height: 1000px;
   overflow-y: scroll;
@@ -25,7 +25,7 @@ export const CoursePreviewContainer = styled.section`
   /* Handle */
   ::-webkit-scrollbar-thumb {
     /* box-shadow: var(--shadow-xs); */
-    background: var(--cleanBlack);
+    background: var(--primary800);
   }
 
   /* Handle on hover */
@@ -76,7 +76,7 @@ export const Lesson = styled.div`
   font-size: 12px;
 
   border: ${({ active }) =>
-    active === true ? "6px solid var(--cleanBlack)" : "6px solid transparent"};
+    active === true ? "6px solid var(--primary800)" : "6px solid transparent"};
 
   /* box-shadow: ${({ active }) =>
     active === true ? "var(--shadow-xs)" : null}; */
@@ -114,7 +114,7 @@ export const Nav = styled.div`
     padding: var(--space-xs);
     background-color: ${({ active }) =>
       (active && "#42495c") || "var(--darkCleanBlack)"};
-    border: 5px solid var(--cleanBlack);
+    border: 5px solid var(--primary800);
     display: grid;
     place-content: center;
   }

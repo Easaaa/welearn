@@ -7,7 +7,8 @@ export const NavWrapper = styled.nav`
   grid-auto-flow: row;
   place-content: center;
   padding: var(--space-md);
-  background: var(--lightCleanBlack);
+  background: var(--primary800);
+  box-shadow: var(--shadow-xs);
 
   @media ${device.tablet} {
     margin: 0 auto;
@@ -30,7 +31,11 @@ export const NavItem = styled.div`
   border-radius: 10px;
   transition: transform 50ms ease-in-out;
   background-color: ${({ active }) =>
-    active === true ? "var(--orange)" : "var(--cleanBlack)"};
+    active === true ? "var(--secondary800)" : "var(--primary800)"};
+  color: ${({ active }) =>
+    active === true ? "var(--primary800)" : "var(--secondary800)"};
+
+  box-shadow: var(--shadow-xs);
 
   &:hover {
     transform: scale(1.05);

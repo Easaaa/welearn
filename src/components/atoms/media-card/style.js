@@ -15,7 +15,7 @@ export const CardWrapper = styled.div`
   margin: 0 auto;
 
   background-color: #1f2639;
-  color: var(--main-white);
+  color: var(--primary800);
   cursor: pointer;
   transition: bottom 60ms ease-in;
   /* background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(0, 0, 0)); */
@@ -23,7 +23,7 @@ export const CardWrapper = styled.div`
   .videoIcon {
     position: absolute;
     font-size: var(--font-9);
-    color: var(--main-white);
+    color: var(--primary800);
     z-index: 10;
     width: 80px;
     height: 80px;
@@ -189,8 +189,8 @@ export const ButtonCta = styled.button`
   border-radius: 10px;
   bottom: 4em;
   right: 4em;
-  color: var(--main-white);
-  text-transform: uppercase;
+  color: var(--primary800);
+  text-transform: capitalize;
   display: none;
   cursor: pointer;
 

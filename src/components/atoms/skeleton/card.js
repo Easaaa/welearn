@@ -6,7 +6,7 @@ const skelStyle = {
   borderRadius: "10px",
   backgroundImage:
     "linear-gradient(90deg, rgb(0, 4, 19), rgb(5, 12, 30), rgb(0, 4, 19))",
-  backgroundColor: "var(--cleanBlack)",
+  backgroundColor: "var(--primary800)",
   margin: "0 auto",
 }
 
@@ -14,7 +14,7 @@ const skelStyleDarker = {
   borderRadius: "10px",
   backgroundImage:
     "linear-gradient(90deg, rgb(5, 12, 30), rgb(8, 19, 48), rgb(5, 12, 30))",
-  backgroundColor: "var(--lightCleanBlack)",
+  backgroundColor: "var(--primary800)",
 }
 
 export const SkeletonCard = ({ count }) => (

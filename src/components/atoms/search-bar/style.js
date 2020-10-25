@@ -11,25 +11,26 @@ export const SearchBarWrap = styled.div`
     border-radius: 10px;
     padding: 0 0 0 70px;
     outline: none;
-    color: var(--main-white);
-    background: var(--lightCleanBlack);
+    color: var(--secondary800);
+    background: var(--primary800);
+    box-shadow: var(--shadow-xs);
     border: none;
     text-align: start;
     font-size: var(--font-4);
     transition: border 50ms ease-in;
 
     &::placeholder {
-      color: var(--main-white) !important;
+      color: var(--secondary800) !important;
       font-size: var(--font-4);
       opacity: 0.8;
     }
 
     &:-ms-input-placeholder {
-      color: var(--main-white);
+      color: var(--secondary800);
     }
 
     &::-ms-input-placeholder {
-      color: var(--main-white);
+      color: var(--secondary800);
     }
   }
 
@@ -40,7 +41,7 @@ export const SearchBarWrap = styled.div`
     height: 45px;
     display: inline-flex;
     align-items: center;
-    background-color: var(--lightCleanBlack);
+    background: var(--primary800);
     border: none;
     width: 45px;
     place-content: center;
@@ -48,18 +49,18 @@ export const SearchBarWrap = styled.div`
 
     svg {
       font-size: var(--font-5);
-      color: var(--main-white);
+      color: var(--secondary800);
     }
   }
 
   &:hover,
   &:active {
     input {
-      border: 1px solid var(--main-white);
+      border: 2px solid var(--secondary800);
     }
 
     button {
-      border: 1px solid var(--main-white);
+      border: 2px solid var(--secondary800);
     }
   }
 `

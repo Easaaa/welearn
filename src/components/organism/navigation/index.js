@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
-import { FirebaseContext } from "lib/firebase"
-import { SchoolContext } from "providers/school-provider"
+import { FirebaseContext } from "../../../lib/firebase"
+import { SchoolContext } from "../../../providers/school-provider"
 import { Link, navigate } from "gatsby"
 import useGetUser from "hooks/useGetUser"
 import * as ROUTES from "constants/routes"
@@ -57,7 +57,8 @@ export const Navigation = () => {
       <Logo schoolName={schoolNameUI === "Pokerify" ? false : true}>
         <h1>
           <StyledLink logo="true" to={ROUTES.LANDING}>
-            {schoolNameUI}
+            {/*       {schoolNameUI} */}
+            WeLearn
           </StyledLink>
         </h1>
       </Logo>

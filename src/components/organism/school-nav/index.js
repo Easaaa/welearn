@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import { FirebaseContext } from "lib/firebase"
+import { FirebaseContext } from "../../../lib/firebase"
 import * as ROUTES from "constants/routes"
 
 import { NavWrapper, StyledLink, NavItem } from "./style"
@@ -50,7 +50,7 @@ export const SchoolNav = () => {
           >
             {!toggleSoon ? (
               <p>
-                <BsGrid1X2 /> Charts
+                <BsGrid1X2 />
               </p>
             ) : (
               <p style={{ color: "#b43828" }}>Prossimamente</p>

@@ -2,7 +2,8 @@ import styled from "styled-components"
 import { device } from "styles/mediaQuery"
 
 export const LoginContainer = styled.section`
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
+  box-shadow: var(--shadow-xs);
   display: grid;
   grid-template-rows: 3fr 0.01fr 1.5fr;
   grid-gap: var(--space-xl);
@@ -37,13 +38,17 @@ export const Btn = styled.button`
   border: none;
   width: 200px;
   height: 40px;
-  color: var(--main-white);
-  text-transform: uppercase;
+  color: var(--primary800);
+  text-transform: capitalize;
   border-radius: 10px;
   cursor: pointer;
 
   &:first-of-type {
     margin-top: var(--space-md);
+  }
+
+  &:last-of-type {
+    background-color: var(--secondary800);
   }
 `
 
@@ -54,8 +59,7 @@ export const WelcomeCol = styled.div`
   place-items: center;
 
   h2 {
-    color: var(--orange);
-    font-weight: 400;
+    font-weight: 500;
   }
 `
 
@@ -89,13 +93,15 @@ export const StyledForm = styled.form`
       border: none;
       padding: 0 var(--space-xs);
       outline: none;
+      background-color: var(--primary800);
+      box-shadow: var(--shadow-xs);
     }
   }
 `
 
 export const Line = styled.div`
   width: 100%;
-  background-color: var(--main-white);
+  background-color: var(--secondary800);
   height: 1px;
   place-self: center;
 

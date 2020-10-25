@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { FirebaseContext } from "lib/firebase"
+import { FirebaseContext } from "../../../lib/firebase"
 import { navigate } from "gatsby"
 import { useForm, ErrorMessage } from "react-hook-form"
 import * as ROUTES from "constants/routes"
@@ -63,7 +63,9 @@ export const Login = () => {
             <ErrorMessage errors={errors} name="password" as="p" />
           </label>
 
-          <Button spinnerOn={spinner ? true : false}>Entra</Button>
+          <Button spinnerOn={spinner ? true : false} bgColor="#f25f4c">
+            Entra
+          </Button>
         </StyledForm>
       </LoginCol>
       <Line />

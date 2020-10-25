@@ -15,10 +15,10 @@ export const ComponentContainer = styled.section`
 export const Header = styled.header`
   button {
     background-color: transparent;
-    color: var(--main-white);
+    color: var(--secondary800);
     border: none;
     padding: var(--space-md) 0;
-    color: var(--dirty-white);
+    color: var(--primary800);
     cursor: pointer;
     outline: none;
 
@@ -57,7 +57,7 @@ export const VideoInfos = styled.div`
     text-align: center;
     padding: 0 var(--space-md);
     /* box-shadow: var(--shadow-xs); */
-    background-color: var(--lightCleanBlack);
+    background-color: var(--primary800);
     font-weight: 500;
   }
   .role {
@@ -68,6 +68,6 @@ export const VideoInfos = styled.div`
     text-align: center;
     padding: 0 var(--space-md);
     /* box-shadow: var(--shadow-xs); */
-    background-color: var(--lightCleanBlack);
+    background-color: var(--primary800);
   }
 `

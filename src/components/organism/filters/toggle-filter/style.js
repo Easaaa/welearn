@@ -1,23 +1,26 @@
 import styled from "styled-components"
 
 export const ToggleContainer = styled.button`
-  background-color: var(--lightCleanBlack);
+  background-color: var(--primary800);
   border: none;
   font-size: var(--font-4);
   width: 150px;
   height: 45px;
   border-radius: 10px;
-  color: var(--main-white);
+  color: var(--secondary800);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   outline: none;
 
+  box-shadow: var(--shadow-xs);
+
   ${({ active }) =>
     active &&
     `
-  border: 1px solid var(--main-white);
+ 
+    box-shadow: var(--shadow-xs);
   `}
 
   svg {

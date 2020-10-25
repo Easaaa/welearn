@@ -25,7 +25,7 @@ export const VideoPlayer = ({ id }) => {
       style={{
         padding: "56.25% 0 0 0",
         position: "relative",
-        border: "4px solid var(--cleanBlack)",
+        border: "4px solid var(--primary800)",
         boxShadow: "var(--shadow-xs)",
         borderRadius: "10px",
       }}

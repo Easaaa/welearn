@@ -2,17 +2,17 @@ import styled from "styled-components"
 import { device } from "styles/mediaQuery"
 
 export const Content = styled.div`
-  /* box-shadow: var(--shadow-xs); */
+  box-shadow: var(--shadow-xs);
   padding: 1em;
   border-radius: 10px;
   width: 100%;
   min-height: 300px;
-  background: var(--lightCleanBlack);
+  background: var(--primary800);
 
   @media ${device.tablet} {
     p {
       line-height: 2em;
-      color: var(--dirty-white);
+      color: var(--secondary800);
       opacity: 0.9;
     }
   }
@@ -34,12 +34,12 @@ export const ContentNav = styled.ul`
     border: none;
     outline: none;
     width: 80%;
-    color: var(--main-white);
+    color: var(--secondary800);
     text-align: start;
     padding-left: var(--space-md);
     height: 40px;
     margin: var(--space-xs) 0;
-    border-bottom: 2px solid var(--main-white);
+    border-bottom: 2px solid var(--secondary800);
   }
 
   @media ${device.tablet} {
@@ -84,7 +84,7 @@ export const Comment = styled.div`
   padding: var(--space-md);
   background-color: var(--darkCleanBlack);
   border-radius: 10px;
-  border: 4px solid var(--cleanBlack);
+  border: 4px solid var(--primary800);
   box-shadow: var(--shadow-xs);
   display: grid;
   grid-template-rows: 1fr auto;
@@ -96,7 +96,7 @@ export const Text = styled.p``
 export const Infos = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 4fr;
-  background-color: var(--cleanBlack);
+  background-color: var(--primary800);
   border-radius: 10px;
   place-content: center;
   align-items: center;
@@ -130,7 +130,7 @@ export const Actions = styled.div`
     background-color: var(--darkCleanBlack);
     border: none;
     box-shadow: var(--shadow-xs);
-    color: var(--main-white);
+    color: var(--secondary800);
     cursor: pointer;
     transition: box-shadow 50ms ease-in;
     border-radius: 5px;
@@ -151,9 +151,9 @@ export const NewComment = styled.div`
     padding: var(--space-md);
     background-color: var(--darkCleanBlack);
     border-radius: 10px;
-    border: 4px solid var(--cleanBlack);
+    border: 4px solid var(--primary800);
     box-shadow: var(--shadow-xs);
-    color: var(--main-white);
+    color: var(--secondary800);
     outline: none;
     transition: box-shadow 50ms ease-in-out;
 
@@ -179,14 +179,14 @@ export const NewComment = styled.div`
     }
 
     button:first-of-type {
-      background-color: var(--cleanBlack);
-      color: var(--dirty-white);
-      border: 1px solid var(--dirty-white);
+      background-color: var(--primary800);
+      color: var(--primary800);
+      border: 1px solid var(--primary800);
     }
 
     button:last-of-type {
       background-color: var(--orange);
-      color: var(--dirty-white);
+      color: var(--primary800);
     }
   }
 `

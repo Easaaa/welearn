@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
 export const Btn = styled.button`
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : "var(--orange)")};
-  color: ${({ color }) => (color ? color : "var(--main-white)")};
+  background-color: ${({ bgColor }) =>
+    bgColor ? bgColor : "var(--secondary800)"};
+  color: ${({ color }) => (color ? color : "var(--primary800)")};
   width: ${({ width }) => (width ? width : "200px")};
   height: ${({ height }) => (height ? height : "40px")};
   border: none;
@@ -16,7 +17,7 @@ export const Btn = styled.button`
   cursor: pointer;
   transition: transform 50ms ease-in;
   outline: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   &:focus,
   &:active,
@@ -27,7 +28,7 @@ export const Btn = styled.button`
 export const SpinnerContainer = styled.div`
   z-index: 888;
   display: inline-block;
-  border: 3px solid var(--cleanBlack);
+  border: 3px solid var(--primary800);
   border-left-color: var(--orange);
   border-radius: 50%;
   width: 25px;

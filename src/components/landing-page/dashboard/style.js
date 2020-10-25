@@ -76,7 +76,7 @@ export const Border = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   height: 1px;
-  background-color: var(--dirty-white);
+  background-color: var(--primary800);
   opacity: 0.4;
 `
 
@@ -103,7 +103,7 @@ export const Card = styled.div`
   }
 
   p {
-    color: var(--dirty-white);
+    color: var(--primary800);
   }
 
   &:hover {

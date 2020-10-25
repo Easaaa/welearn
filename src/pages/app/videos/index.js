@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react"
-import { SchoolContext } from "providers/school-provider"
+import { SchoolContext } from "src/providers/school-provider"
 import { gql, useQuery } from "@apollo/client"
 
-import { SearchBar } from "components/atoms/search-bar"
-import { Layout } from "components/organism/layout/"
-import { Filters } from "components/organism/filters"
-import { VideosList } from "components/organism/videos-list"
-import { Section } from "components/atoms/section"
+import { SearchBar } from "../../../components/atoms/search-bar"
+import { Layout } from "../../../components/organism/layout"
+import { Filters } from "../../../components/organism/filters"
+import { VideosList } from "../../../components/organism/videos-list"
+import { Section } from "../../../components/atoms/section"
 
 export const GET_SCHOOL_VIDEOS = gql`
   query($schoolId: ID!, $filterFor: String, $filterVal: String, $limit: Int) {

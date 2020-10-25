@@ -21,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
   --main-link-bg: #d1d4e3;
 
 
+ /* ====== WHITE PALETTE ====== */
+
+  --primary800: #f1f3f6;
+  --secondary800: #373b53;
+
   /* ====== FONT SIZE ====== */
   --font-10: 7rem;
   --font-9: 5.96rem;
@@ -45,16 +50,18 @@ export const GlobalStyle = createGlobalStyle`
   --space-xxl: calc(5.25 * var(--space-unit));
 
  /* ======= SHADOW ======= */
+
+
+ --shadow-xs: 3px 3px 10px #e4e4e4,-3px -3px 10px #ffffff;
  
-  --shadow-lightBlack-inset: inset 3px 3px 10px #2d303b, -3px -3px 10px #464a5d;
+/*   --shadow-lightBlack-inset: inset 3px 3px 10px #2d303b, -3px -3px 10px #464a5d;
   --shadow-lightBlack: 3px 3px 10px #2d303b, -3px -3px 10px #464a5d;
 
   --shadow-xs-inset: inset 3px 3px 10px #0b0b0d,-3px -3px 10px #1d1e24;
   --shadow-xs:  3px 3px 10px #0b0b0d,-3px -3px 10px #1d1e24;
 
   --shadow-md:  10px 10px 30px #232531, -10px -10px 30px #3c3d50;
-  --shadow-xl:  13px 13px 40px #232531, -13px -13px 40px #3c3d50;
- 
+  --shadow-xl:  13px 13px 40px #232531, -13px -13px 40px #3c3d50; */
 
    /* ======= LINE HEIGHT ======= */
    --line-height-sm: 1.125;
@@ -76,7 +83,7 @@ ul,li {
 
 a {
   text-decoration: none;
-  color: var(--main-white);
+  color: var(--secondary800);
   width: 100%;
   cursor: pointer;
 }
@@ -87,8 +94,8 @@ a {
 
   body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--main-white);
-    background-color: var(--cleanBlack);
+    color: var(--secondary800);
+    background-color: var(--primary800);
     font-size: var(--font-3);
     max-width: 1920px;
     min-height: 100%;
