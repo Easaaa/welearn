@@ -4,8 +4,8 @@ export const ProfileContainer = styled.section`
   max-width: 1000px;
   margin: var(--space-md) auto;
   padding: var(--space-xl) 0;
-  background-color: var(--darkCleanBlack);
   border-radius: 10px;
+  box-shadow: var(--shadow-xs);
 
   header {
     max-width: 760px;
@@ -13,11 +13,11 @@ export const ProfileContainer = styled.section`
   }
 
   h3  {
-    color: var(--orange);
+    color: var(--secondary800);
   }
 
   h5 {
-    font-weight: 400;
+    color: var(--orange);
   }
 
   form {
@@ -52,6 +52,9 @@ export const ProfileContainer = styled.section`
       border-radius: 10px;
       padding: 0 var(--space-md);
       font-weight: 300;
+      box-shadow: var(--shadow-xs);
+
+      outline: none;
     }
   }
 `

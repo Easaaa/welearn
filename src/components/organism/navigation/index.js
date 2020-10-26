@@ -30,7 +30,7 @@ export const Navigation = () => {
   const [toggleProfile, setToggleProfile] = useState(false)
   const url = typeof window !== "undefined" ? window.location.pathname : ""
   const { userData } = useGetUser()
-  const user = userData && userData.getUser
+  const user = userData && userData
 
   const schoolNameUI = currentUser && school ? school.name : "Pokerify"
 
@@ -75,10 +75,7 @@ export const Navigation = () => {
 
         {url.includes("app") ? (
           <ProfileMenu>
-            {userData &&
-            userData.getUser.firstName &&
-            userData &&
-            userData.getUser.lastName ? (
+            {userData && userData.firstName && userData && userData.lastName ? (
               <ProfilePreview onClick={() => setToggleProfile(true)}>
                 <ProfileImg>
                   <img src={ProfileImage} alt="" />

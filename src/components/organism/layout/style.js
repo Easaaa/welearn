@@ -53,6 +53,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
  --shadow-xs: 3px 3px 10px #e4e4e4,-3px -3px 10px #ffffff;
+ --shadow-md: 9px 10px 10px #e4e4e4, -12px -12px 10px #ffffff;
  
 /*   --shadow-lightBlack-inset: inset 3px 3px 10px #2d303b, -3px -3px 10px #464a5d;
   --shadow-lightBlack: 3px 3px 10px #2d303b, -3px -3px 10px #464a5d;

@@ -2,14 +2,9 @@ import React from "react"
 import { GoSettings } from "react-icons/go"
 import { ToggleContainer, Switch } from "./style"
 
-export const ToggleFilter = ({ filterState, setFilterState }) => {
+export const ToggleFilter = ({ state: { isToggle, setIsToggle } }) => {
   return (
-    <ToggleContainer
-      onClick={() =>
-        setFilterState(state => ({ ...state, toggle: !state.toggle }))
-      }
-      active={filterState.toggle ? true : false}
-    >
+    <ToggleContainer onClick={() => setIsToggle(!isToggle)} active={isToggle}>
       <GoSettings /> Filters
       {/* <Switch filterState={filterState.toggle}>
         <input

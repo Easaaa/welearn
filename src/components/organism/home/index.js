@@ -17,13 +17,12 @@ export const Home = () => {
         <Header>
           <h1>
             <span>Benvenuto</span>{" "}
-            {userData && userData.getUser.firstName
-              ? userData.getUser.firstName
+            {userData && userData.firstName
+              ? userData.firstName
               : "sconosciuto"}
             !
           </h1>
-          {(userData && !userData.getUser.firstName) ||
-          !userData.getUser.lastName ? (
+          {(userData && !userData.firstName) || !userData.lastName ? (
             <MissingField>
               <p>Ultimi due passi per diventare definitivamente un membro:</p>
               <h5>

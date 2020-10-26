@@ -11,8 +11,8 @@ const SchoolProvider = ({ children }) => {
   useEffect(() => {
     if (userData) {
       setSchool({
-        id: userData.getUser.schoolId,
-        name: userData.getUser.schoolName,
+        id: userData.schoolId,
+        name: userData.schoolName,
       })
     }
 

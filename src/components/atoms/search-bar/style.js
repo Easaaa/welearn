@@ -45,7 +45,7 @@ export const SearchBarWrap = styled.div`
     border: none;
     width: 45px;
     place-content: center;
-    transition: border 40ms ease-in;
+    transition: box-shadow 80ms ease-in;
 
     svg {
       font-size: var(--font-5);
@@ -56,11 +56,7 @@ export const SearchBarWrap = styled.div`
   &:hover,
   &:active {
     input {
-      border: 2px solid var(--secondary800);
-    }
-
-    button {
-      border: 2px solid var(--secondary800);
+      box-shadow: var(--shadow-md);
     }
   }
 `

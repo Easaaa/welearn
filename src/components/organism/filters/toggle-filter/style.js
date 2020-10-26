@@ -16,15 +16,20 @@ export const ToggleContainer = styled.button`
 
   box-shadow: var(--shadow-xs);
 
+  transition: box-shadow 50ms ease-in;
+
   ${({ active }) =>
     active &&
-    `
- 
-    box-shadow: var(--shadow-xs);
+    ` 
+    box-shadow: var(--shadow-md);
   `}
 
   svg {
     margin-right: var(--space-xs);
+  }
+  &:hover,
+  &:active {
+    box-shadow: var(--shadow-md);
   }
 `
 

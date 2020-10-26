@@ -10,10 +10,10 @@ import useGetUser from "hooks/useGetUser"
 const VideoTemplate = ({ data, pageContext, location }) => {
   const { school } = useContext(SchoolContext)
   const { userData } = useGetUser()
-  const role = userData && userData.getUser.role
-  const requiredRole = data && data.video.role
+  const role = userData && userData.role
+  // const requiredRole = data && data.video.role
 
-  if (!school) {
+  /*  if (!school) {
     return (
       <Layout>
         <PageLoader />
@@ -36,26 +36,13 @@ const VideoTemplate = ({ data, pageContext, location }) => {
     <Layout>
       <Video item={data.video} />
     </Layout>
+  ) */
+
+  return (
+    <Layout>
+      <Video item={pageContext.video.node} />
+    </Layout>
   )
 }
 
 export default VideoTemplate
-
-export const pageQuery = graphql`
-  query videoQuery($id: String) {
-    video(id: { eq: $id }) {
-      description
-      createdAt
-      id
-      madeByFullName
-      madeByID
-      role
-      schoolId
-      store
-      title
-      type
-      wistiaId
-      duration
-    }
-  }
-`

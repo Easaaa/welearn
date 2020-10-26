@@ -39,6 +39,7 @@ export const NavItem = styled.div`
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: var(--shadow-md);
   }
 
   p {

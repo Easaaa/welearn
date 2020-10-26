@@ -7,6 +7,7 @@ export const ComponentContainer = styled.section`
   display: grid;
   grid-auto-flow: row;
   grid-gap: var(--space-md);
+  max-width: 1480px;
 
   @media ${device.tablet} {
     padding: var(--space-xl);
@@ -18,12 +19,19 @@ export const Header = styled.header`
     color: var(--secondary800);
     border: none;
     padding: var(--space-md) 0;
-    color: var(--primary800);
     cursor: pointer;
     outline: none;
 
+    box-shadow: var(--shadow-xs);
+
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 20px 0;
+
     display: inline-flex;
     align-items: center;
+    justify-content: center;
   }
 
   h1 {
@@ -56,7 +64,7 @@ export const VideoInfos = styled.div`
     border-radius: 5px;
     text-align: center;
     padding: 0 var(--space-md);
-    /* box-shadow: var(--shadow-xs); */
+    box-shadow: var(--shadow-xs);
     background-color: var(--primary800);
     font-weight: 500;
   }
@@ -67,7 +75,7 @@ export const VideoInfos = styled.div`
     border-radius: 5px;
     text-align: center;
     padding: 0 var(--space-md);
-    /* box-shadow: var(--shadow-xs); */
+    box-shadow: var(--shadow-xs);
     background-color: var(--primary800);
   }
 `

@@ -37,7 +37,7 @@ export const Layout = ({ title, children }) => {
   return (
     <LayoutWrapper>
       <GlobalStyle />
-      <SEO />
+      {/*   <SEO /> */}
       <Navigation />
       <SchoolNav />
       <main style={{ minHeight: "calc(100vh - 70px)" }}>{children}</main>

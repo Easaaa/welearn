@@ -6,7 +6,7 @@ import { useStickyState } from "hooks/useStickyState"
 import { BsArrowLeftShort } from "react-icons/bs"
 import { VideoPlayer } from "components/atoms/video-player"
 import { VideoContent } from "components/organism/video-content"
-import { CourseContext } from "providers/course-provider"
+import { CourseContext } from "../../../providers/course-provider"
 import useGetUser from "hooks/useGetUser"
 import * as ROUTES from "constants/routes"
 
@@ -42,7 +42,7 @@ export const Course = ({ item }) => {
 
   const currentCourse =
     courseState && courseState.find(obj => obj.courseId === item.id)
-  const position = currentCourse.currentLesson
+  const position = currentCourse?.currentLesson
 
   const handleStartLesson = (lesson, wistiaId) => {
     let newArray = [...courseState]
@@ -77,7 +77,7 @@ export const Course = ({ item }) => {
       {position === 0 ? (
         <WelcomeCourse>
           <h3>
-            👏 Complimenti <span>{userData.getUser.firstName}</span>,
+            👏 Complimenti <span>{userData.firstName}</span>,
           </h3>
           <h5>
             stai per iniziare questo nuovo corso, ricordati che per ottenere il
@@ -92,7 +92,7 @@ export const Course = ({ item }) => {
         </WelcomeCourse>
       ) : (
         <VideoContainer>
-          <VideoPlayer id={currentCourse.wistiaId} />
+          <VideoPlayer id={currentCourse?.wistiaId} />
         </VideoContainer>
       )}
 

@@ -80,7 +80,7 @@ export const StyledForm = styled.form`
   display: grid;
   place-content: center;
   place-items: center;
-  grid-gap: var(--space-md);
+  grid-gap: 30px;
 
   label {
     display: grid;
@@ -95,6 +95,13 @@ export const StyledForm = styled.form`
       outline: none;
       background-color: var(--primary800);
       box-shadow: var(--shadow-xs);
+
+      transition: box-shadow 80ms ease-in-out;
+
+      &:hover,
+      &:active {
+        box-shadow: var(--shadow-md);
+      }
     }
   }
 `

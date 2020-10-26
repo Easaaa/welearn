@@ -15,12 +15,14 @@ export const VideosList = ({ data, loading, filter }) => {
           data &&
           data.map(item => (
             <CardLink
-              key={item.id}
-              to={`/app/videos/${item.title.replace(/ /g, "-").toLowerCase()}`}
-              spanCard={findCardPosition(data, item)}
-              thirdSize={thirdSizeCard(data, item)}
+              key={item.node.id}
+              to={`/app/videos/${item.node.title
+                .replace(/ /g, "-")
+                .toLowerCase()}`}
+              spanCard="span 8"
+              thirdSize={true}
             >
-              <MediaCard data={item} thirdSize={thirdSizeCard(data, item)} />
+              <MediaCard data={item.node} thirdSize={true} />
             </CardLink>
           ))
         }

@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from "react"
 import { CourseContext } from "providers/course-provider"
+import ReactPlayer from "react-player"
 
 export const VideoPlayer = ({ id }) => {
   const { courseState } = useContext(CourseContext)
 
-  useEffect(() => {
+  /* useEffect(() => {
     const script2 = document.createElement("script")
     script2.src = "https://fast.wistia.com/assets/external/E-v1.js"
     script2.async = true
@@ -17,10 +18,21 @@ export const VideoPlayer = ({ id }) => {
     return () => {
       document.body.removeChild(script2)
     }
-  }, [id])
+  }, [id]) */
 
   return (
-    <div
+    <ReactPlayer
+      style={{
+        position: "relative",
+        border: "4px solid var(--primary800)",
+        boxShadow: "var(--shadow-xs)",
+        borderRadius: "10px",
+      }}
+      width="100%"
+      height="450px"
+      url=" https://youtu.be/F_OZxUeWKqs"
+    />
+    /*  <div
       class="wistia_responsive_padding"
       style={{
         padding: "56.25% 0 0 0",
@@ -56,6 +68,6 @@ export const VideoPlayer = ({ id }) => {
           style={{ borderRadius: "10px" }}
         ></iframe>
       </div>
-    </div>
+    </div> */
   )
 }

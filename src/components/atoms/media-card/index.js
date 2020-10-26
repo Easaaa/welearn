@@ -21,7 +21,7 @@ import {
 
 export const MediaCard = ({ data, isCourse, thirdSize }) => {
   const { userData } = useGetUser()
-  const role = userData && userData.getUser.role
+  const role = userData && userData.role
   const requiredRole = data && data.role
 
   return (

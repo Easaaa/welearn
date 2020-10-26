@@ -15,16 +15,20 @@ export const ComponentContainer = styled.section`
 `
 export const Header = styled.header`
   button {
-    background-color: transparent;
+    box-shadow: var(--shadow-xs);
     color: var(--secondary800);
     border: none;
-    padding: var(--space-md) 0;
-    color: var(--primary800);
     cursor: pointer;
     outline: none;
 
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 20px 0;
+
     display: inline-flex;
     align-items: center;
+    justify-content: center;
   }
 
   h1 {
@@ -83,7 +87,7 @@ export const WelcomeCourse = styled.div`
 
   h5 {
     font-weight: 400;
-    color: var(--primary800);
+    color: var(--secondary800);
   }
 
   button {
@@ -92,8 +96,8 @@ export const WelcomeCourse = styled.div`
     background-color: var(--orange);
     border: none;
     border-radius: 10px;
-    color: var(--secondary800);
-    text-transform: uppercase;
+    color: var(--primary800);
+    text-transform: capitalize;
     margin: var(--space-md) 0;
     cursor: pointer;
 
@@ -128,7 +132,7 @@ export const VideoInfos = styled.div`
     text-align: center;
     padding: 0 var(--space-md);
     background-color: var(--primary800);
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 500;
 
     box-shadow: var(--shadow-xs);
@@ -141,6 +145,7 @@ export const VideoInfos = styled.div`
     text-align: center;
     padding: 0 var(--space-md);
     background-color: var(--primary800);
-    text-transform: uppercase;
+    text-transform: capitalize;
+    box-shadow: var(--shadow-xs);
   }
 `

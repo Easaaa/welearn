@@ -50,7 +50,7 @@ export const SchoolNav = () => {
           >
             {!toggleSoon ? (
               <p>
-                <BsGrid1X2 />
+                <BsGrid1X2 /> Quiz
               </p>
             ) : (
               <p style={{ color: "#b43828" }}>Prossimamente</p>

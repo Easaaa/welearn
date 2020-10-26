@@ -12,10 +12,10 @@ import { CourseContainer } from "styles/courseContainer"
 const CourseTemplate = ({ data, pageContext, location }) => {
   const { school } = useContext(SchoolContext)
   const { userData } = useGetUser()
-  const role = userData && userData.getUser.role
-  const requiredRole = data && data.course.role
+  /* const role = userData && userData.role
+  const requiredRole = data && data.course.role */
 
-  if (!school) {
+  /*  if (!school) {
     return (
       <Layout>
         <PageLoader />
@@ -23,7 +23,7 @@ const CourseTemplate = ({ data, pageContext, location }) => {
     )
   }
 
-  if (data && data.course.schoolId !== school.id) {
+  if (pageContext && pageContext.course.node.schoolId !== school.id) {
     navigate("/")
     return (
       <Layout>
@@ -35,40 +35,22 @@ const CourseTemplate = ({ data, pageContext, location }) => {
   return blockAccess(
     role,
     requiredRole,
+    <Layout>s
+      <CourseContainer>
+        <Course item={pageContext.course.node} />
+        <CoursePreview item={pageContext.course.node} />
+      </CourseContainer>
+    </Layout>
+  ) */
+
+  return (
     <Layout>
       <CourseContainer>
-        <Course item={data.course} />
-        <CoursePreview item={data.course} />
+        <Course item={pageContext.course.node} />
+        <CoursePreview item={pageContext.course.node} />
       </CourseContainer>
     </Layout>
   )
 }
 
 export default CourseTemplate
-
-export const pageQuery = graphql`
-  query courseQuery($id: String) {
-    course(id: { eq: $id }) {
-      schoolId
-      madeByID
-      madeByFullName
-      title
-      subtitle
-      description
-      role
-      type
-      coverLink
-      createdAt
-      id
-      lessons {
-        title
-        wistiaId
-        description
-        notes
-        lesson
-        duration
-      }
-      store
-    }
-  }
-`

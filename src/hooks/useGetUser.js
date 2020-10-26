@@ -1,44 +1,40 @@
 import { useEffect, useContext } from "react"
-import { useQuery, gql } from "@apollo/client"
+import { useStaticQuery, graphql } from "gatsby"
 import { FirebaseContext } from "lib/firebase"
-
-export const GET_USER = gql`
-  query($uid: ID!) {
-    getUser(uid: $uid) {
-      email
-      firstName
-      lastName
-      skype
-      schoolName
-      schoolId
-      role
-      uid
-    }
-  }
-`
 
 const useGetUser = () => {
   const { currentUser } = useContext(FirebaseContext)
-
-  const { error: userErr, loading: userLoad, data: userData } = useQuery(
-    GET_USER,
+  const userErr = false
+  const userLoad = false
+  const data = useStaticQuery(graphql`
     {
-      variables: { uid: currentUser && currentUser.uid },
-      refetchQueries: [{ query: GET_USER }],
+      allUser(filter: { email: { eq: "leonardotononi@gmail.com" } }) {
+        edges {
+          node {
+            createdAt(fromNow: true)
+            email
+            firstName
+            id
+            lastName
+            role
+            schoolId
+            schoolName
+            skype
+            uid
+          }
+        }
+      }
     }
-  )
+  `)
 
   useEffect(() => {
-    if (userData) {
+    if (data) {
       typeof window !== "undefined" &&
-        window.localStorage.setItem(
-          "userRole",
-          JSON.stringify(userData.getUser.role)
-        )
+        window.localStorage.setItem("userRole", JSON.stringify("level_5"))
     }
-  }, [userData])
+  }, [data])
 
-  return { userErr, userLoad, userData }
+  return { userErr, userLoad, userData: data.allUser.edges[0].node }
 }
 
 export default useGetUser

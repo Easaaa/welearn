@@ -8,21 +8,26 @@ export const FiltersContainer = styled.section`
 
 export const GeneralFilters = styled.form`
   display: grid;
-  grid-auto-columns: row;
+  grid-auto-flow: row;
+  align-items: center;
   grid-gap: var(--space-md);
+
   position: absolute;
   top: 100px;
+  z-index: 99;
+
   background-color: var(--primary800);
   padding: var(--space-md);
-  border: 1px solid var(--secondary800);
+  border: 1px solid var(--primary800);
   border-radius: 10px;
-  z-index: 99;
+
+  border: 3px solid var(--secondary800);
 
   button {
     background: transparent;
     border: none;
     color: var(--mainWhite);
-    border: 1px solid var(--secondary800);
+    border: none;
     box-shadow: var(--shadow-xs);
     cursor: pointer;
     width: 220px;
@@ -32,6 +37,13 @@ export const GeneralFilters = styled.form`
     text-transform: capitalize;
     transition: box-shadow 50ms ease-in;
     font-weight: 600;
+
+    &:hover,
+    &:active {
+      box-shadow: var(--shadow-md);
+      background-color: var(--secondary800);
+      color: var(--primary800);
+    }
   }
 `
 
@@ -53,20 +65,22 @@ export const Filter = styled.div`
     color: var(--secondary800);
     height: 50px;
     background-image: none;
+    box-shadow: var(--shadow-xs);
     font-size: var(--font-2);
     border-radius: 10px;
     padding: 0 1em;
     cursor: pointer;
     outline: none;
-    transition: background-color 50ms ease-in;
+    transition: box-shadow 50ms ease-in;
     letter-spacing: 0.1em;
 
     &::-ms-expand {
       display: none;
     }
 
-    &:hover {
-      box-shadow: var(--shadow-xs);
+    &:hover,
+    &:active {
+      box-shadow: var(--shadow-md);
     }
   }
 `

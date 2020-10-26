@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { FiltersContainer, GeneralFilters, Filter } from "./style"
 import { ToggleFilter } from "./toggle-filter"
 import { OutsideAlerter } from "hooks/useClickOutside"
 
 export const Filters = ({ filter, data }) => {
   const { filterState, setFilterState, filterDefaultState } = filter
+  const [isToggle, setIsToggle] = useState(false)
 
   const handleFilter = (value, filterFor) => {
     if (value.length === 0) {
@@ -12,9 +13,11 @@ export const Filters = ({ filter, data }) => {
     } else {
       setFilterState(currentState => ({
         ...currentState,
+        toggle: true,
         filterFor: filterFor,
         filterVal: value,
       }))
+      setIsToggle(false)
     }
   }
 
@@ -22,8 +25,8 @@ export const Filters = ({ filter, data }) => {
     let authorArray = []
     data &&
       data.map(item => {
-        if (authorArray.findIndex(x => x === item.madeByFullName) === -1) {
-          authorArray.push(item.madeByFullName)
+        if (authorArray.findIndex(x => x === item.node.madeByFullName) === -1) {
+          authorArray.push(item.node.madeByFullName)
         } else {
           return
         }
@@ -31,13 +34,17 @@ export const Filters = ({ filter, data }) => {
     return authorArray
   }
 
+  const handleReset = e => {
+    e.preventDefault()
+    setIsToggle(false)
+    setFilterState(filterDefaultState)
+  }
+
   return (
     <FiltersContainer>
-      <ToggleFilter filterState={filterState} setFilterState={setFilterState} />
-      {filterState.toggle ? (
-        <OutsideAlerter
-          toggle={() => setFilterState(state => ({ ...state, toggle: false }))}
-        >
+      <ToggleFilter state={{ isToggle, setIsToggle }} />
+      {isToggle ? (
+        <OutsideAlerter toggle={() => setIsToggle(false)}>
           <GeneralFilters id="form">
             <Filter>
               <label>Tipo</label>
@@ -47,16 +54,16 @@ export const Filters = ({ filter, data }) => {
                 onChange={e => handleFilter(e.target.value, "type")}
               >
                 <option value="">Qualsiasi</option>
-                <option value="mtt">MTT</option>
-                <option value="cash_game">CASH GAME</option>
-                <option value="sng">SNG</option>
+                <option value="mtt">Mtt</option>
+                <option value="cash_game">Cash Game</option>
+                <option value="sng">Sng</option>
               </select>
             </Filter>
             <Filter>
               <label>Ruolo</label>
               <select
-                name="position"
-                id="position"
+                name="role"
+                id="role"
                 onChange={e => handleFilter(e.target.value, "role")}
               >
                 <option value="">Qualsiasi</option>
@@ -80,9 +87,7 @@ export const Filters = ({ filter, data }) => {
                 ))}
               </select>
             </Filter>
-            <button onClick={() => setFilterState(filterDefaultState)}>
-              Azzera
-            </button>
+            <button onClick={handleReset}>Azzera</button>
           </GeneralFilters>
         </OutsideAlerter>
       ) : null}

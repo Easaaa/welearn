@@ -1,7 +1,3 @@
-/* require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-}) */
-
 const firebaseService = {
   type: "service_account",
   project_id: "pokerify-8dd70",
@@ -34,6 +30,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     "gatsby-plugin-resolve-src",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-firestore-easy`,
       options: {
@@ -50,54 +47,13 @@ module.exports = {
             collection: "videos",
             type: "Video",
           },
+          {
+            collection: "users",
+            type: "User",
+          },
         ],
       },
     },
-    /*  {
-      resolve: "gatsby-source-firestore",
-      options: {
-        credential: require("./src/lib/service-account.json"),
-        types: [
-          {
-            type: "Video",
-            collection: "videos",
-            map: doc => ({
-              type: doc.type,
-              id: doc.id,
-              title: doc.title,
-              wistiaId: doc.wistiaId,
-              role: doc.role,
-              store: doc.store,
-              description: doc.description,
-              createdAt: doc.createdAt,
-              schoolId: doc.schoolId,
-              madeByID: doc.madeByID,
-              madeByFullName: doc.madeByFullName,
-              duration: doc.duration,
-            }),
-          },
-          {
-            type: "Course",
-            collection: "courses",
-            map: doc => ({
-              schoolId: doc.schoolId,
-              madeByID: doc.madeByID,
-              madeByFullName: doc.madeByFullName,
-              title: doc.title,
-              subtitle: doc.subtitle,
-              description: doc.description,
-              role: doc.role,
-              type: doc.type,
-              coverLink: doc.coverLink,
-              createdAt: doc.createdAt,
-              lessons: doc.lessons,
-              store: doc.store,
-              id: doc.id,
-            }),
-          },
-        ],
-      },
-    }, */
 
     {
       resolve: `gatsby-transformer-remark`,
@@ -128,7 +84,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -140,25 +95,12 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
-    `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-
-    /*  {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ["Product", "Plan", "Subscription"],
-        secretKey: process.env.STRIPE_SECRET_KEY,
-        downloadFiles: false,
-      },
-    }, */
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

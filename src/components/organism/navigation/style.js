@@ -146,7 +146,7 @@ export const DropDownMenu = styled.div`
   position: absolute;
   top: 75px;
   left: 0;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow-md);
   width: 200px;
   display: grid;
   place-content: center;
@@ -169,7 +169,7 @@ export const DropDownMenu = styled.div`
       margin-left: -75px;
       width: 150px;
       height: 1px;
-      background: white;
+      background: var(--secondary800);
     }
   }
 

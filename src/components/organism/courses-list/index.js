@@ -9,6 +9,7 @@ export const CoursesList = ({
   filterState,
   query: { conditionalData: data, loading },
 }) => {
+  console.log("courseList", data)
   return (
     <VideosContainer>
       <SearchPlaceholder
@@ -18,13 +19,15 @@ export const CoursesList = ({
           data &&
           data.map(item => (
             <CardLink
-              key={item.id}
-              to={`/app/courses/${item.title.replace(/ /g, "-").toLowerCase()}`}
+              key={item.node.id}
+              to={`/app/courses/${item.node.title
+                .replace(/ /g, "-")
+                .toLowerCase()}`}
               spanCard={findCardPosition(data, item)}
               thirdSize={thirdSizeCard(data, item)}
             >
               <MediaCard
-                data={item}
+                data={item.node}
                 thirdSize={thirdSizeCard(data, item)}
                 isCourse
               />

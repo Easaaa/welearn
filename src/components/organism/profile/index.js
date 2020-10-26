@@ -1,87 +1,27 @@
-import React, { useRef } from "react"
+import React, { useRef, useContext } from "react"
+import { FirebaseContext } from "../../../lib/firebase"
 import { useForm } from "react-hook-form"
 
-import { useMutation, gql } from "@apollo/client"
-
-import useGetUser, { GET_USER } from "hooks/useGetUser"
+import useGetUser from "hooks/useGetUser"
 import * as ROLES from "constants/roles"
 import { ProfileContainer } from "./style"
 import { Button } from "components/atoms/button"
 
-const UPDATE_USER_PROFILE = gql`
-  mutation(
-    $uid: ID!
-    $email: String!
-    $firstName: String!
-    $lastName: String!
-    $skype: String
-  ) {
-    updateUserProfileAndAuth(
-      uid: $uid
-      email: $email
-      firstName: $firstName
-      lastName: $lastName
-      skype: $skype
-    ) {
-      email
-      firstName
-      lastName
-      skype
-      schoolName
-      schoolId
-      role
-      uid
-    }
-  }
-`
-
 export const Profile = () => {
+  const { firebase } = useContext(FirebaseContext)
   const { handleSubmit, register, watch } = useForm()
   const { userErr, userLoad, userData } = useGetUser()
-  const [
-    updateUserProfileAndAuth,
-    { loading: mutationLoading, error: mutationError },
-  ] = useMutation(UPDATE_USER_PROFILE)
 
-  // password confirmation
   const password = useRef({})
   password.current = watch("password", "")
 
   const onSubmit = async values => {
     const { email, firstName, lastName, skype } = values
-    try {
-      await updateUserProfileAndAuth({
-        variables: {
-          email,
-          firstName,
-          lastName,
-          skype,
-          uid: userData && userData.getUser.uid,
-        },
-        update(cache, { data: { updateUserProfileAndAuth } }) {
-          const { getUser } = cache.readQuery({
-            query: GET_USER,
-            variables: { uid: userData.getUser.uid },
-          })
-          cache.writeQuery({
-            query: GET_USER,
-            variables: {
-              email,
-              firstName,
-              lastName,
-              skype,
-              uid: userData.getUser.uid,
-            },
-            data: { getUser: updateUserProfileAndAuth },
-          })
-        },
-      })
-    } catch (err) {
-      console.log(err)
-    }
+
+    await firebase.updateProfile({ email, firstName, lastName, skype })
   }
 
-  const user = userData ? userData.getUser : null
+  const user = userData && userData
 
   if (userLoad) return <p>Loading</p>
 
@@ -164,7 +104,7 @@ export const Profile = () => {
             defaultValue={ROLES.convertRoleUI(user.role)}
           />
         </label>
-        <Button type="submit" spinnerOn={mutationLoading ? true : false}>
+        <Button type="submit" spinnerOn={false}>
           Salva
         </Button>
       </form>

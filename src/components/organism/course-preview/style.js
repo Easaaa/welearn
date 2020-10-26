@@ -4,7 +4,7 @@ import { device } from "styles/mediaQuery"
 export const CoursePreviewContainer = styled.section`
   padding: var(--space-xl) var(--space-md);
   margin-top: var(--space-xxl);
-  /* box-shadow: var(--shadow-xs); */
+  box-shadow: var(--shadow-xs);
   background-color: var(--primary800);
   border-radius: 10px;
   max-height: 1000px;
@@ -19,7 +19,7 @@ export const CoursePreviewContainer = styled.section`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: var(--darkCleanBlack);
+    background: var(--secondary800);
   }
 
   /* Handle */
@@ -78,14 +78,13 @@ export const Lesson = styled.div`
   border: ${({ active }) =>
     active === true ? "6px solid var(--primary800)" : "6px solid transparent"};
 
-  /* box-shadow: ${({ active }) =>
-    active === true ? "var(--shadow-xs)" : null}; */
-  background: ${({ active }) =>
-    active === true ? "var(--darkCleanBlack)" : null};
+   box-shadow: ${({ active }) =>
+     active === true ? "var(--shadow-xs)" : null}; 
+  /* background: ${({ active }) =>
+    active === true ? "var(--secondary800)" : null}; */
 
   &:hover {
-    /* box-shadow: var(--shadow-xs); */
-    background: var(--darkCleanBlack);
+     box-shadow: var(--shadow-xs); 
   }
 
   @media ${device.tablet} {
@@ -102,19 +101,19 @@ export const Nav = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    /* box-shadow: var(--shadow-xs); */
-    background-color: var(--orange);
+    box-shadow: var(--shadow-xs);
+    background-color: var(--secondary800);
   }
 
   div {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* box-shadow: var(--shadow-xs); */
+    box-shadow: var(--shadow-xs);
     padding: var(--space-xs);
-    background-color: ${({ active }) =>
-      (active && "#42495c") || "var(--darkCleanBlack)"};
-    border: 5px solid var(--primary800);
+    /* background-color: ${({ active }) =>
+      (active && "#42495c") || "var(--secondary800)"}; */
+    border: 3px solid var(--secondary800);
     display: grid;
     place-content: center;
   }
@@ -125,7 +124,7 @@ export const Nav = styled.div`
     position: absolute;
     width: 10px;
     height: 100px;
-    /* box-shadow: var(--shadow-xs); */
+    box-shadow: var(--shadow-xs);
     left: 50%;
     margin-left: -5px;
     top: 55%;

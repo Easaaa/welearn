@@ -51,6 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `app/videos/${pathURL}`,
       component: videoComponent,
       context: {
+        video: video,
         id: video.node.id,
       },
     })
@@ -105,6 +106,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `app/courses/${pathURL}`,
       component: courseComponent,
       context: {
+        course: course,
         id: course.node.id,
       },
     })

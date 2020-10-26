@@ -20,6 +20,8 @@ export const CoursePreview = ({ item }) => {
 
   const progressBar = parseInt((100 * position) / item.lessons.length)
 
+  console.log(courseState)
+
   const handleCourseState = (lesson, wistiaId) => {
     let newArray = [...courseState]
     let pos = newArray.findIndex(obj => obj.courseId === item.id)
@@ -53,15 +55,15 @@ export const CoursePreview = ({ item }) => {
         </h1>
         <ProgressLabel
           progress={progressBar}
-          fillColor="var(--primary800)"
+          fillColor="var(--secondary800)"
           trackColor="var(--primary800)"
-          progressColor="var(--orange)"
-          progressWidth={8}
-          trackWidth={5}
+          progressColor="var(--secondary800)"
+          progressWidth={6}
+          trackWidth={8}
           trackBorderWidth={3}
-          stroke="var(--orange)"
+          stroke="var(--primary800)"
           trackBorderColor="var(--primary800)"
-          cornersWidth={5}
+          cornersWidth={2}
           size={80}
           text={`${progressBar}%`}
           textProps={{
