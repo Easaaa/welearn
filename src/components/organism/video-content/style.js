@@ -33,13 +33,14 @@ export const ContentNav = styled.ul`
     background-color: transparent;
     border: none;
     outline: none;
-    width: 80%;
+    width: 70%;
     color: var(--secondary800);
     text-align: start;
     padding-left: var(--space-md);
-    height: 40px;
+    height: 45px;
     margin: var(--space-xs) 0;
-    border-bottom: 2px solid var(--secondary800);
+    box-shadow: var(--shadow-md);
+    border-radius: 10px;
   }
 
   @media ${device.tablet} {
@@ -56,11 +57,18 @@ export const ContentNav = styled.ul`
   .false {
     opacity: 0.4;
     font-weight: 400;
-    border-bottom: none;
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      box-shadow: var(--shadow-xs);
+      opacity: 0.8;
+    }
   }
 
   .true {
     opacity: 1;
+    font-weight: 500;
   }
 `
 export const About = styled.p`

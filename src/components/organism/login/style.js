@@ -5,7 +5,7 @@ export const LoginContainer = styled.section`
   background-color: var(--primary800);
   box-shadow: var(--shadow-xs);
   display: grid;
-  grid-template-rows: 3fr 0.01fr 1.5fr;
+  grid-template-rows: 1fr;
   grid-gap: var(--space-xl);
   place-content: center;
   padding: var(--space-md);
@@ -19,24 +19,23 @@ export const LoginContainer = styled.section`
 
   @media ${device.laptop} {
     grid-template-rows: 1fr;
-    grid-template-columns: 3fr 0.5fr 3fr;
-
+    grid-template-columns: 1fr;
     margin: var(--space-xxl) auto;
-    max-width: 900px;
-    width: 900px;
-    height: 450px;
+
+    width: 550px;
+    height: 500px;
     place-content: space-between;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -225px 0 0 -450px;
+    margin: -225px 0 0 -275px;
   }
 `
 
 export const Btn = styled.button`
   background-color: var(--orange);
   border: none;
-  width: 200px;
+  width: 100%;
   height: 40px;
   color: var(--primary800);
   text-transform: capitalize;
@@ -65,11 +64,18 @@ export const WelcomeCol = styled.div`
 
 export const LoginCol = styled.div`
   display: grid;
+  grid-gap: 15px;
   place-content: center;
 
-  h2 {
+  svg {
+    place-self: center;
+    font-size: 40px;
     color: var(--orange);
-    font-weight: 400;
+  }
+
+  h2 {
+    color: var(--secondary800);
+    font-weight: 500;
     text-align: center;
     max-width: 300px;
   }
@@ -95,7 +101,7 @@ export const StyledForm = styled.form`
       outline: none;
       background-color: var(--primary800);
       box-shadow: var(--shadow-xs);
-
+      margin-top: 10px;
       transition: box-shadow 80ms ease-in-out;
 
       &:hover,

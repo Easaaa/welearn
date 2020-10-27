@@ -7,7 +7,7 @@ export const ComponentContainer = styled.section`
   display: grid;
   grid-auto-flow: row;
   grid-gap: var(--space-md);
-  max-width: 1480px;
+  max-width: 1024px;
 
   @media ${device.tablet} {
     padding: var(--space-xl);
@@ -32,17 +32,24 @@ export const Header = styled.header`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    &:hover,
+    &:active {
+      box-shadow: var(--shadow-md);
+    }
   }
 
   h1 {
     margin: 0;
     font-weight: 500;
-    color: var(--orange);
+    color: var(--secondary800);
   }
 
   p {
     margin: 0;
     font-size: var(--font-1);
+    color: var(--orange);
+    font-weight: 500;
   }
 `
 export const VideoContainer = styled.div`

@@ -34,16 +34,14 @@ export const Logo = styled.div`
     font-weight: 600;
 
     &:after {
-      font-family: "Righteous";
-      content: "beta";
+      content: "Decentralized";
       position: absolute;
       color: var(--main-red);
       font-size: var(--font-3);
-      letter-spacing: 0.1em;
       font-weight: 400;
       left: 0;
       bottom: -0.5em;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
 

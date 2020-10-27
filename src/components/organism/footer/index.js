@@ -13,7 +13,7 @@ export const Footer = () => {
     <StyledFooter>
       <FooterWrapper>
         <Logo>
-          <h1>Made by Pokerify</h1>
+          <h1>Made by WeLearn</h1>
           {/* <p>Copyright 2020 Pokerify Inc. All Rights Reserved.</p> */}
         </Logo>
         <LinkWrapper>
