@@ -29,7 +29,9 @@ const NavLinksComponent = () => (
 )
 
 const WrapperRouter = ({ children }) => {
-  if (window?.location.pathname === ROUTES.LANDING) {
+  const isWindow =
+    typeof window !== "undefined" ? window.location.pathname : null
+  if (isWindow === ROUTES.LANDING) {
     return children
   } else return <WithAuthNav />
 }
