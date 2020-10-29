@@ -142,49 +142,25 @@ export const ProfileName = styled.div`
     font-weight: 200;
   }
 `
-export const DropDownMenu = styled.div`
-  position: absolute;
-  top: 75px;
-  left: 0;
-  box-shadow: var(--shadow-md);
-  width: 200px;
-  display: grid;
-  place-content: center;
-  border-radius: 10px;
-  padding: var(--space-md) 0;
-  z-index: 100;
-  background-color: var(--primary800);
+export const LiStyledLogin = styled.li`
+  width: 120px;
+  height: 45px;
+  border: 2px solid var(--secondary800);
+  border-radius: 5px;
 
-  h5 {
-    position: relative;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: var(--font-3);
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      margin-left: -75px;
-      width: 150px;
-      height: 1px;
-      background: var(--secondary800);
-    }
+  &:hover {
+    background-color: var(--secondary800);
   }
 
-  ul {
-    list-style-type: none;
+  ${StyledLink} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
-    li {
-      font-weight: 400;
-      margin: var(--space-xs) 0;
-
-      a {
-        display: grid;
-        grid-auto-flow: column;
-        align-items: center;
-      }
+    &:hover {
+      bottom: 0;
+      color: var(--main-white);
     }
   }
 `
