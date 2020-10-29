@@ -5,23 +5,14 @@ import * as ROUTES from "constants/routes"
 import { NavWrapper, StyledLink, NavItem } from "./style"
 import { MdSchool } from "react-icons/md"
 import { BsCollectionPlayFill, BsGrid1X2 } from "react-icons/bs"
-import VideosImg from "assets/laptop.jpeg"
-import CoursesImg from "assets/book.jpeg"
 
 export const SchoolNav = () => {
   const { currentUser } = useContext(FirebaseContext)
-  const [toggleSoon, setToggleSoon] = useState(false)
 
   const url = typeof window !== "undefined" ? window.location.pathname : ""
-  const checkIfLandingPage = () => {
-    if (window.location.pathname === "/") {
-      return true
-    } else return false
-  }
 
-  if (currentUser && checkIfLandingPage() === true) return null
-
-  if (currentUser && checkIfLandingPage() === false)
+  if (currentUser && (window?.location.pathname === "/") === true) return null
+  if (currentUser && (window?.location.pathname === "/") === false)
     return (
       <NavWrapper>
         <StyledLink to={ROUTES.COURSES}>
@@ -36,25 +27,6 @@ export const SchoolNav = () => {
             <p>
               <BsCollectionPlayFill /> Video
             </p>
-          </NavItem>
-        </StyledLink>
-        <StyledLink to="#">
-          <NavItem
-            active={url.includes("charts") ? true : false}
-            onClick={() => {
-              setToggleSoon(true)
-              setTimeout(() => {
-                setToggleSoon(false)
-              }, 3000)
-            }}
-          >
-            {!toggleSoon ? (
-              <p>
-                <BsGrid1X2 /> Quiz
-              </p>
-            ) : (
-              <p style={{ color: "#b43828" }}>Prossimamente</p>
-            )}
           </NavItem>
         </StyledLink>
       </NavWrapper>

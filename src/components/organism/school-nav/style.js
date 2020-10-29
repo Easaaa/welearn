@@ -4,16 +4,23 @@ import { device } from "styles/mediaQuery"
 
 export const NavWrapper = styled.nav`
   display: grid;
-  grid-auto-flow: row;
+  grid-auto-flow: column;
   place-content: center;
-  padding: var(--space-md);
+
   background: var(--primary800);
-  box-shadow: var(--shadow-xs);
+  border-top: 1px solid var(--dirty-white);
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 555;
 
   @media ${device.tablet} {
     margin: 0 auto;
-    grid-auto-flow: column;
     grid-gap: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    border-top: none;
+    padding: var(--space-md);
   }
 `
 
@@ -24,10 +31,16 @@ export const StyledLink = styled(Link)`
 export const NavItem = styled.div`
   margin: var(--space-xs);
   position: relative;
-  height: 45px;
-  width: 180px;
+  height: 55px;
+  width: 85px;
+
   cursor: pointer;
-  display: inline-block;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 10px;
   transition: transform 50ms ease-in-out;
   background-color: ${({ active }) =>
@@ -45,21 +58,37 @@ export const NavItem = styled.div`
   p {
     position: absolute;
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     align-items: center;
     place-content: center;
-    grid-gap: var(--space-xs);
-    top: 50%;
-    left: 50%;
-    margin: -7.5px 0 0 -75px;
-    height: 15px;
-    width: 150px;
-    font-size: var(--font-3);
+    justify-items: center;
+
+    text-transform: lowercase;
+
+    margin: 0;
+    font-size: var(--font-2);
     font-weight: 600;
 
     svg {
       width: 20px;
       height: 20px;
+    }
+  }
+
+  @media ${device.tablet} {
+    display: inline-block;
+    height: 45px;
+    width: 180px;
+
+    p {
+      grid-auto-flow: column;
+      top: 50%;
+      left: 50%;
+      margin: -7.5px 0 0 -75px;
+      height: 15px;
+      width: 150px;
+      grid-gap: var(--space-xs);
+      text-transform: capitalize;
     }
   }
 

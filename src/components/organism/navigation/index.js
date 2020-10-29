@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react"
-import { FirebaseContext } from "../../../lib/firebase"
+import React from "react"
 import * as ROUTES from "constants/routes"
 import { WithAuthNav } from "./withAuthNav"
 
@@ -36,9 +35,6 @@ const WrapperRouter = ({ children }) => {
 }
 
 export const Navigation = () => {
-  const { currentUser } = useContext(FirebaseContext)
-  const [isHambVisible, setIsHambVisible] = useState(false)
-
   return (
     <WrapperRouter>
       <NavWrapper>
