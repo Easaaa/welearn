@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { device } from "styles/mediaQuery"
+import Popup from "reactjs-popup"
 import { Link } from "gatsby"
 
 export const NavWrapper = styled.nav`
@@ -58,8 +59,7 @@ export const Logo = styled.div`
       }`}
 `
 export const NavLinksWrap = styled.ul`
-  /* font-family: "Righteous"; */
-  display: grid;
+  display: none;
   grid-auto-flow: column;
   place-content: end;
   grid-gap: var(--space-md);
@@ -70,7 +70,28 @@ export const NavLinksWrap = styled.ul`
   @media ${device.tablet} {
     grid-gap: var(--space-xl);
   }
+
+  @media ${device.laptop} {
+    display: grid;
+    position: relative;
+  }
 `
+
+export const NavLinksWrapMobile = styled(NavLinksWrap)`
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  place-content: center;
+  position: absolute;
+  height: 250px;
+  width: 300px;
+  left: 50%;
+  top: 50%;
+  margin: -125px 0 0 -150px;
+  background: var(--primary800);
+  border-radius: 10px;
+`
+
 export const StyledLink = styled(Link)`
   position: relative;
   display: grid;
@@ -93,7 +114,6 @@ export const StyledLink = styled(Link)`
     }
   }
 `
-
 export const ProfileMenu = styled.li`
   position: relative;
   display: grid;
@@ -109,7 +129,6 @@ export const ProfileMenu = styled.li`
     display: block;
   }
 `
-
 export const ProfilePreview = styled.div`
   display: grid;
   grid-auto-flow: column;
@@ -162,5 +181,38 @@ export const LiStyledLogin = styled.li`
       bottom: 0;
       color: var(--main-white);
     }
+  }
+`
+export const MobileButton = styled.button`
+  background: none;
+  border: none;
+  outline: none;
+
+  width: 50px;
+  height: 50px;
+
+  border: 2px solid var(--secondary800);
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    font-size: 30px;
+    color: var(--secondary800);
+  }
+
+  @media ${device.laptop} {
+    display: none;
+  }
+`
+export const StyledPopup = styled(Popup)`
+  // use your custom style for ".popup-overlay"
+  &-overlay {
+    background-color: #373b5363;
+  }
+  // use your custom style for ".popup-content"
+  &-content {
   }
 `
