@@ -7,7 +7,6 @@ export const Container = styled.section`
   place-content: center;
   max-width: 600px;
   position: relative;
-  padding: 10em var(--space-xs);
 
   img {
     position: absolute;
@@ -43,11 +42,12 @@ export const FormWrapper = styled.section`
   width: 100%;
   max-width: 600px;
   padding: var(--space-xl);
-  border-radius: 10px;
+  border-radius: 20px;
   display: grid;
   grid-gap: var(--space-lg);
   place-content: center;
   background-color: var(--primary800);
+  box-shadow: var(--shadow-xs);
 `
 
 export const StyledForm = styled.form`
@@ -66,28 +66,26 @@ export const StyledForm = styled.form`
   input {
     width: 300px;
     height: 55px;
-    background-color: var(--darkCleanBlack);
-    border: 4px solid var(--primary800);
     box-shadow: var(--shadow-xs);
+    background-color: var(--primary800);
+    color: var(--secondary800);
     border-radius: 10px;
-
     padding: 0 var(--space-md);
     outline: none;
-    color: #eaeaea;
-    transition: background-color 50ms ease-in;
+    border: none;
+    transition: box-shadow 50ms ease-in;
 
     &:placeholder-shown {
-      color: #eaeaea;
+      color: var(--secondary800);
     }
 
     &:hover {
-      background-color: transparent;
-      border: 1px solid var(--secondary800);
+      box-shadow: var(--shadow-md);
     }
   }
 
   button {
-    width: 150px;
+    width: 300px;
     margin: 0 auto;
     height: 50px;
     background-color: var(--secondary800);

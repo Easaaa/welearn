@@ -76,6 +76,10 @@ class Firebase {
         console.error("An error happened updating password.", error)
       })
   }
+
+  async getUserState() {
+    return this.auth.currentUser
+  }
 }
 
 let firebaseInstance

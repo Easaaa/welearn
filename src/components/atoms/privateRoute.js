@@ -2,15 +2,19 @@ import React, { useContext } from "react"
 import { navigate } from "gatsby"
 import { FirebaseContext } from "lib/firebase"
 import * as ROUTES from "constants/routes"
+import { PageLoader } from "../atoms/page-loader"
 
-const PrivateRoute = ({ component: Component, location, ...rest }) => {
-  const { currentUser } = useContext(FirebaseContext)
-  if (!currentUser && location.pathname !== ROUTES.LANDING) {
-    navigate(ROUTES.LANDING)
+const PrivateRoute = ({ children }) => {
+  const { isDbLoading, currentUser, firebase } = useContext(FirebaseContext)
+
+  if (isDbLoading) {
+    return <PageLoader />
+  } else if (!currentUser) {
+    navigate(ROUTES.LOGIN)
     return null
+  } else {
+    return children
   }
-
-  return <Component {...rest} />
 }
 
 export default PrivateRoute

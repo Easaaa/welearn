@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { FirebaseContext } from "lib/firebase"
 
 const useGetUser = () => {
-  const { currentUser } = useContext(FirebaseContext)
+  const { firebase } = useContext(FirebaseContext)
   const userErr = false
   const userLoad = false
   const data = useStaticQuery(graphql`

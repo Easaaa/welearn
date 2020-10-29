@@ -16,9 +16,7 @@ export const VideosList = ({ data, loading, filter }) => {
           data.map(item => (
             <CardLink
               key={item.node.id}
-              to={`/app/videos/${item.node.title
-                .replace(/ /g, "-")
-                .toLowerCase()}`}
+              to={`/videos/${item.node.title.replace(/ /g, "-").toLowerCase()}`}
               spanCard="span 8"
               thirdSize={true}
             >

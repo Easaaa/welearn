@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
-import { FirebaseContext } from "../../lib/firebase"
-import { CourseContext } from "../../providers/course-provider"
-import { SchoolContext } from "../../providers/school-provider"
+import { useStaticQuery, graphql } from "gatsby"
+import { CourseContext } from "../providers/course-provider"
+import { SchoolContext } from "../providers/school-provider"
 
 import { Layout } from "components/organism/layout/"
 import { Filters } from "components/organism/filters"
 import { CoursesList } from "components/organism/courses-list"
 import { SearchBar } from "components/atoms/search-bar"
 import { Section } from "components/atoms/section"
-
-import { useStaticQuery, graphql } from "gatsby"
+import PrivateRoute from "components/atoms/privateRoute"
 
 const filterDefaultState = {
   toggle: false,
@@ -95,24 +94,26 @@ const CoursesPage = () => {
     : data && data.allCourse.edges
 
   return (
-    <Layout>
-      <Section container="twoElEnd">
-        <SearchBar search={{ searchFilter, setSearchFilter }} />
-        <Filters
-          filter={{
-            setFilterState,
-            filterState,
-            filterDefaultState,
-          }}
-          data={data && data.allCourse.edges}
-        />
-      </Section>
+    <PrivateRoute>
+      <Layout>
+        <Section container="twoElEnd">
+          <SearchBar search={{ searchFilter, setSearchFilter }} />
+          <Filters
+            filter={{
+              setFilterState,
+              filterState,
+              filterDefaultState,
+            }}
+            data={data && data.allCourse.edges}
+          />
+        </Section>
 
-      <CoursesList
-        filterState={filterState}
-        query={{ conditionalData, loading }}
-      />
-    </Layout>
+        <CoursesList
+          filterState={filterState}
+          query={{ conditionalData, loading }}
+        />
+      </Layout>
+    </PrivateRoute>
   )
 }
 

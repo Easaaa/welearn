@@ -25,7 +25,7 @@ import { BsArrowRightShort } from "react-icons/bs"
 import { OutsideAlerter } from "hooks/useClickOutside"
 
 export const Navigation = () => {
-  const { currentUser, firebase } = useContext(FirebaseContext)
+  const { firebase, currentUser } = useContext(FirebaseContext)
   const { school } = useContext(SchoolContext)
   const [toggleProfile, setToggleProfile] = useState(false)
   const url = typeof window !== "undefined" ? window.location.pathname : ""
@@ -67,13 +67,13 @@ export const Navigation = () => {
         {/* {checkIfLandingPage(contactLink)} */}
 
         <li>
-          <StyledLink to={ROUTES.HOME}>
-            {(url.includes("app") && "Home") || "Accedi"}
-            {currentUser && !url.includes("app") ? <BsArrowRightShort /> : null}
+          <StyledLink to={ROUTES.LOGIN}>
+            {(currentUser && "Home") || "Accedi"}
+            {currentUser && <BsArrowRightShort />}
           </StyledLink>
         </li>
 
-        {url.includes("app") ? (
+        {currentUser ? (
           <ProfileMenu>
             {userData && userData.firstName && userData && userData.lastName ? (
               <ProfilePreview onClick={() => setToggleProfile(true)}>
@@ -107,7 +107,7 @@ export const Navigation = () => {
                         onClick={() => {
                           firebase.logout().then(() => {
                             setToggleProfile(false)
-                            navigate(ROUTES.HOME)
+                            navigate(ROUTES.LOGIN)
                           })
                         }}
                       >

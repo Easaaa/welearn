@@ -93,7 +93,7 @@ export const FunctionalityWrapper = styled.section`
 
 export const Card = styled.div`
   padding: var(--space-md);
-  border-radius: 5px;
+  border-radius: 15px;
   max-height: 200px;
   max-width: 500px;
   margin: 0 auto;
@@ -103,7 +103,7 @@ export const Card = styled.div`
   }
 
   p {
-    color: var(--primary800);
+    color: var(--secondary800);
   }
 
   &:hover {

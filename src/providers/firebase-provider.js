@@ -6,7 +6,7 @@ import { FirebaseContext } from "lib/firebase"
 const FirebaseProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null)
   const [firebase, setFirebase] = useState(null)
-  const [dbLoading, setDbLoading] = useState(true)
+  const [isDbLoading, setIsDbLoading] = useState(true)
 
   useEffect(() => {
     let unsubscribe
@@ -16,7 +16,7 @@ const FirebaseProvider = ({ children }) => {
       setFirebase(firebaseInstance)
 
       unsubscribe = firebaseInstance.auth.onAuthStateChanged(user => {
-        setDbLoading(false)
+        setIsDbLoading(false)
         if (user) {
           setCurrentUser(user)
           window.localStorage.setItem("userUid", JSON.stringify(user.uid))
@@ -27,7 +27,7 @@ const FirebaseProvider = ({ children }) => {
       })
 
       return () => {
-        setDbLoading(true)
+        setIsDbLoading(true)
         unsubscribe()
       }
     })
@@ -39,7 +39,7 @@ const FirebaseProvider = ({ children }) => {
         currentUser,
         setCurrentUser,
         firebase,
-        dbLoading,
+        isDbLoading,
       }}
     >
       {children}

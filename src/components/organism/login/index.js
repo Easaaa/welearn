@@ -22,6 +22,7 @@ export const Login = () => {
   const [spinner, setSpinner] = useState(false)
 
   const onSubmit = (values, e) => {
+    e.preventDefault()
     setSpinner(true)
     firebase
       .login(values)

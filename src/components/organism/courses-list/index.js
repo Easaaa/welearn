@@ -20,7 +20,7 @@ export const CoursesList = ({
           data.map(item => (
             <CardLink
               key={item.node.id}
-              to={`/app/courses/${item.node.title
+              to={`/courses/${item.node.title
                 .replace(/ /g, "-")
                 .toLowerCase()}`}
               spanCard={findCardPosition(data, item)}

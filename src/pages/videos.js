@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react"
-import { SchoolContext } from "../../providers/school-provider"
+import { SchoolContext } from "../providers/school-provider"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { SearchBar } from "../../components/atoms/search-bar"
-import { Layout } from "../../components/organism/layout"
-import { Filters } from "../../components/organism/filters"
-import { VideosList } from "../../components/organism/videos-list"
-import { Section } from "../../components/atoms/section"
+import { SearchBar } from "components/atoms/search-bar"
+import { Layout } from "components/organism/layout"
+import { Filters } from "components/organism/filters"
+import { VideosList } from "components/organism/videos-list"
+import { Section } from "components/atoms/section"
+import PrivateRoute from "components/atoms/privateRoute"
 
 const filterDefaultState = {
   filterFor: null,
@@ -62,25 +63,27 @@ const VideosPage = () => {
     data?.allVideo.edges
 
   return (
-    <Layout>
-      <Section container="twoElEnd">
-        <SearchBar search={{ searchFilter, setSearchFilter }} />
-        <Filters
-          filter={{
-            setFilterState,
-            filterState,
-            filterDefaultState,
-            setSearchFilter,
-          }}
-          data={data && data.allVideo.edges}
+    <PrivateRoute>
+      <Layout>
+        <Section container="twoElEnd">
+          <SearchBar search={{ searchFilter, setSearchFilter }} />
+          <Filters
+            filter={{
+              setFilterState,
+              filterState,
+              filterDefaultState,
+              setSearchFilter,
+            }}
+            data={data && data.allVideo.edges}
+          />
+        </Section>
+        <VideosList
+          data={conditionalData}
+          loading={loading}
+          filterState={filterState}
         />
-      </Section>
-      <VideosList
-        data={conditionalData}
-        loading={loading}
-        filterState={filterState}
-      />
-    </Layout>
+      </Layout>
+    </PrivateRoute>
   )
 }
 

@@ -8,8 +8,8 @@ export const Header = () => {
     <HeaderWrapper>
       <StyledHeader>
         <h1>
-          Ottimizza la tua <span>impresa di poker</span> e aumenta il ritorno di
-          <span> investimento</span>.
+          Crea la tua <span>accademia</span> personale per il tuo{" "}
+          <span>business</span>.
         </h1>
 
         <p>

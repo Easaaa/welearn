@@ -15,16 +15,13 @@ import { Login } from "components/organism/login"
 const LandingPage = () => {
   return (
     <Layout>
-      {/* <Header /> */}
-      {/* <HowItWorks /> */}
-      {/* <Dashboard />
+      <Header />
+      <HowItWorks />
+      <Dashboard />
       <Product />
-      <Development /> */}
-      {/* <Pricing /> */}
-      {/* <ContactForm /> */}
-      {/* <Footer /> */}
-
-      <Login />
+      <Development />
+      <Pricing />
+      <ContactForm />
     </Layout>
   )
 }

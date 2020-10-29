@@ -103,7 +103,7 @@ export const ColTxt = styled.div`
   }
 
   p:last-of-type {
-    color: var(--primary800);
+    color: var(--secondary800);
   }
 
   @media ${device.laptop} {

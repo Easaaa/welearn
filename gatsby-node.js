@@ -1,14 +1,14 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreatePage = async ({ page, actions }) => {
+/* exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
   if (page.path.match(/^\/app/)) {
     page.matchPath = "/app/*"
     createPage(page)
   }
 }
-
+ */
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
   videos.forEach((video, index) => {
     const pathURL = video && video.node.title.replace(/ /g, "-").toLowerCase()
     createPage({
-      path: `app/videos/${pathURL}`,
+      path: `videos/${pathURL}`,
       component: videoComponent,
       context: {
         video: video,
@@ -103,7 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
   courses.forEach((course, index) => {
     const pathURL = course && course.node.title.replace(/ /g, "-").toLowerCase()
     createPage({
-      path: `app/courses/${pathURL}`,
+      path: `courses/${pathURL}`,
       component: courseComponent,
       context: {
         course: course,

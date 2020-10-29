@@ -1,71 +1,63 @@
 import React from "react"
 import styled from "styled-components"
-import Spinner from "react-spinkit"
+import { GlobalStyle } from "components/organism/layout/style"
+// import Spinner from "react-spinkit"
 /* https://github.com/KyleAMathews/react-spinkit */
 
 const SpinnerWrapper = styled.div`
   position: absolute;
-  top: 50%;
+  width: 200px;
+  height: 200px;
   left: 50%;
-  margin: -40px 0 0 -40px;
-  z-index: 999;
+  top: 50%;
+  margin-left: -100px;
+  text-align: center;
 
-  .cube {
-    width: 75px;
-    height: 75px;
-    /* border: 1px solid #f25f4c; */
-    background: var(--primary800);
-
-    div {
-      &:before {
-        background-color: azure;
-        width: 90%;
-        height: 90%;
-      }
-    }
-  }
-`
-
-const SpinnerStyled = styled.div`
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-
-  div {
-    position: absolute;
-    border: 4px solid var(--secondary800);
-    opacity: 1;
+  .bouncingLoader > div,
+  .bouncingLoader:before,
+  .bouncingLoader:after {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: var(--secondary800);
+    margin-bottom: -5px;
     border-radius: 50%;
-    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    animation: bouncing-loader 0.5s infinite alternate;
   }
-  div:nth-child(2) {
-    animation-delay: -0.5s;
+
+  .bouncingLoader > div,
+  .bouncingLoader:before,
+  .bouncingLoader:after {
+    content: "";
   }
-  @keyframes lds-ripple {
-    0% {
-      top: 36px;
-      left: 36px;
-      width: 0;
-      height: 0;
-      opacity: 1;
-    }
-    100% {
-      top: 0px;
-      left: 0px;
-      width: 72px;
-      height: 72px;
-      opacity: 0;
+
+  .bouncingLoader > div {
+    margin: 0 5px;
+  }
+
+  .bouncingLoader > div {
+    animation-delay: 0.2s;
+  }
+
+  .bouncingLoader:after {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bouncing-loader {
+    to {
+      opacity: 0.1;
+      transform: translate3d(0, -16px, 0);
     }
   }
 `
 
 export const PageLoader = () => (
-  <SpinnerWrapper>
-    <Spinner name="folding-cube" color="var(--secondary800)" className="cube" />
-    {/* <SpinnerStyled>
-      <div></div>
-      <div></div>
-    </SpinnerStyled> */}
-  </SpinnerWrapper>
+  <>
+    <GlobalStyle />
+    <SpinnerWrapper>
+      <div className="bouncingLoader">
+        <div></div>
+      </div>
+    </SpinnerWrapper>
+  </>
 )

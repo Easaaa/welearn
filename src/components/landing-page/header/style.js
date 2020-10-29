@@ -47,7 +47,7 @@ export const StyledHeader = styled.header`
   }
 
   p {
-    color: #d0d0d0;
+    color: var(--secondary800);
     text-align: center;
     padding: 0 var(--space-md);
     line-height: var(--line-height-lg);

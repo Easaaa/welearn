@@ -14,7 +14,7 @@ export const SchoolNav = () => {
 
   const url = typeof window !== "undefined" ? window.location.pathname : ""
   const checkIfLandingPage = () => {
-    if (!url.includes("app")) {
+    if (window.location.pathname === "/") {
       return true
     } else return false
   }
@@ -38,7 +38,7 @@ export const SchoolNav = () => {
             </p>
           </NavItem>
         </StyledLink>
-        <StyledLink>
+        <StyledLink to="#">
           <NavItem
             active={url.includes("charts") ? true : false}
             onClick={() => {
