@@ -18,9 +18,11 @@ export const NavWrapper = styled.nav`
   @media ${device.tablet} {
     margin: 0 auto;
     grid-gap: var(--space-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-xs);
     border-top: none;
     padding: var(--space-md);
+    position: relative;
+    z-index: 1;
   }
 `
 

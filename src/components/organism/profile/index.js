@@ -6,11 +6,13 @@ import useGetUser from "hooks/useGetUser"
 import * as ROLES from "constants/roles"
 import { ProfileContainer } from "./style"
 import { Button } from "components/atoms/button"
+import { ResultModal, useResultModal } from "components/organism/modals"
 
 export const Profile = () => {
   const { firebase } = useContext(FirebaseContext)
   const { handleSubmit, register, watch } = useForm()
   const { userErr, userLoad, userData } = useGetUser()
+  const { resultMsg, setResultMsg } = useResultModal()
 
   const password = useRef({})
   password.current = watch("password", "")
@@ -18,7 +20,20 @@ export const Profile = () => {
   const onSubmit = async values => {
     const { email, firstName, lastName, skype } = values
 
-    await firebase.updateProfile({ email, firstName, lastName, skype })
+    await firebase
+      .updateProfile({ email, firstName, lastName, skype })
+      .then(() => {
+        setResultMsg({
+          type: "success",
+          title: "User profile updated.",
+        })
+      })
+      .catch(error => {
+        setResultMsg({
+          type: "error",
+          title: "Error updating profile.",
+        })
+      })
   }
 
   const user = userData && userData
@@ -108,6 +123,9 @@ export const Profile = () => {
           Salva
         </Button>
       </form>
+      {resultMsg ? (
+        <ResultModal type={resultMsg.type} title={resultMsg.title} />
+      ) : null}
     </ProfileContainer>
   )
 }
