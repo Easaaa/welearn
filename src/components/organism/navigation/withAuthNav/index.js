@@ -17,9 +17,11 @@ import {
   ProfilePreview,
   ProfileImg,
   ProfileName,
+  AddNewBtn,
 } from "../style"
 import ProfileImage from "assets/profile.png"
 import { RiArrowDropDownLine } from "react-icons/ri"
+import { MdAdd } from "react-icons/md"
 
 export const WithAuthNav = () => {
   const { currentUser } = useContext(FirebaseContext)
@@ -43,6 +45,12 @@ export const WithAuthNav = () => {
             Home
           </StyledLink>
         </li>
+        <AddNewBtn>
+          <StyledLink to={ROUTES.ADD_NEW}>
+            <MdAdd />
+            <span>Add New Content</span>
+          </StyledLink>
+        </AddNewBtn>
 
         {currentUser ? (
           <ProfileMenu>

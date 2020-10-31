@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react"
+import React, { useRef, useContext, useState } from "react"
 import { FirebaseContext } from "../../../lib/firebase"
 import { useForm } from "react-hook-form"
 
@@ -13,13 +13,14 @@ export const Profile = () => {
   const { handleSubmit, register, watch } = useForm()
   const { userErr, userLoad, userData } = useGetUser()
   const { resultMsg, setResultMsg } = useResultModal()
+  const [isBtnLoading, setIsBtnLoading] = useState(false)
 
   const password = useRef({})
   password.current = watch("password", "")
 
   const onSubmit = async values => {
     const { email, firstName, lastName, skype } = values
-
+    await setIsBtnLoading(true)
     await firebase
       .updateProfile({ email, firstName, lastName, skype })
       .then(() => {
@@ -27,12 +28,14 @@ export const Profile = () => {
           type: "success",
           title: "User profile updated.",
         })
+        setIsBtnLoading(false)
       })
       .catch(error => {
         setResultMsg({
           type: "error",
           title: "Error updating profile.",
         })
+        setIsBtnLoading(false)
       })
   }
 
@@ -119,7 +122,7 @@ export const Profile = () => {
             defaultValue={ROLES.convertRoleUI(user.role)}
           />
         </label>
-        <Button type="submit" spinnerOn={false}>
+        <Button type="submit" spinnerOn={isBtnLoading}>
           Salva
         </Button>
       </form>

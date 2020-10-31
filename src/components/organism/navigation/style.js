@@ -216,3 +216,53 @@ export const StyledPopup = styled(Popup)`
   &-content {
   }
 `
+export const AddNewBtn = styled.li`
+  position: relative;
+  border: 2px solid var(--secondary800);
+  border-radius: 5px;
+  padding: 5px;
+
+  span {
+    display: none;
+    position: absolute;
+    top: 60px;
+    width: 160px;
+    height: 45px;
+    margin-left: -80x;
+    left: 50%;
+    background: var(--secondary800);
+    color: var(--main-white);
+    border-radius: 5px;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ${StyledLink} {
+    &:hover {
+      bottom: 0;
+    }
+
+    svg {
+      font-size: 24px;
+      color: var(--secondary800);
+    }
+  }
+
+  &:hover {
+    background: var(--secondary800);
+
+    span {
+      display: flex;
+    }
+
+    ${StyledLink} {
+      color: var(--main-white);
+
+      svg {
+        color: var(--main-white);
+        transform: rotate(360deg);
+      }
+    }
+  }
+`

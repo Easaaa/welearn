@@ -1,7 +1,7 @@
 import React, { useState, useRef, useContext } from "react"
 import { FirebaseContext } from "../../../lib/firebase"
 import { useForm } from "react-hook-form"
-
+import { ResultModal, useResultModal } from "components/organism/modals"
 import useGetUser from "hooks/useGetUser"
 
 import { ProfileContainer } from "../profile/style.js"
@@ -13,6 +13,8 @@ export const PasswordReset = () => {
   const { handleSubmit, register, errors, watch } = useForm()
   const [togglePassw, setTogglePassw] = useState(false)
 
+  const { resultMsg, setResultMsg } = useResultModal()
+  const [isBtnLoading, setIsBtnLoading] = useState(false)
   const { userErr, userLoad, userData } = useGetUser()
 
   // password confirmation
@@ -21,14 +23,27 @@ export const PasswordReset = () => {
 
   const onSubmit = async (values, e) => {
     e.preventDefault()
-    try {
-      await setTogglePassw(false)
-      firebase.updatePassword(values.password)
+    await setIsBtnLoading(true)
+    await setTogglePassw(false)
 
-      await e.target.reset()
-    } catch (error) {
-      console.log(error)
-    }
+    await firebase
+      .updatePassword(values.password)
+      .then(() => {
+        setResultMsg({
+          type: "success",
+          title: "User password updated.",
+        })
+        setIsBtnLoading(false)
+      })
+      .catch(error => {
+        setResultMsg({
+          type: "error",
+          title: "Failed updating password.",
+        })
+        setIsBtnLoading(false)
+      })
+
+    await e.target.reset()
   }
 
   return (
@@ -39,6 +54,9 @@ export const PasswordReset = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Password
+          {errors.password && (
+            <p style={{ color: "red" }}>{errors.password.message}</p>
+          )}
           <input
             name="password"
             type={togglePassw ? "text" : "password"}
@@ -54,12 +72,11 @@ export const PasswordReset = () => {
           <i onClick={() => setTogglePassw(!togglePassw)}>{<IoMdEye />}</i>
         </label>
 
-        {errors.password && (
-          <p style={{ color: "red" }}>{errors.password.message}</p>
-        )}
-
         <label>
           Conferma Password
+          {errors.password_repeat && (
+            <p style={{ color: "red" }}>{errors.password_repeat.message}</p>
+          )}
           <input
             name="password_repeat"
             type={togglePassw ? "text" : "password"}
@@ -72,11 +89,13 @@ export const PasswordReset = () => {
           <i onClick={() => setTogglePassw(!togglePassw)}>{<IoMdEye />}</i>
         </label>
 
-        {errors.password_repeat && (
-          <p style={{ color: "red" }}>{errors.password_repeat.message}</p>
-        )}
-        <Button type="submit">Salva</Button>
+        <Button type="submit" spinnerOn={isBtnLoading}>
+          Salva
+        </Button>
       </form>
+      {resultMsg ? (
+        <ResultModal type={resultMsg.type} title={resultMsg.title} />
+      ) : null}
     </ProfileContainer>
   )
 }

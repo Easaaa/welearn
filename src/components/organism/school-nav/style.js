@@ -31,6 +31,7 @@ export const StyledLink = styled(Link)`
 `
 
 export const NavItem = styled.div`
+  display: ${({ actionBtn }) => actionBtn && "none"};
   margin: var(--space-xs);
   position: relative;
   height: 55px;
@@ -83,20 +84,23 @@ export const NavItem = styled.div`
     width: 180px;
 
     p {
+      position: relative;
       grid-auto-flow: column;
-      top: 50%;
-      left: 50%;
-      margin: -7.5px 0 0 -75px;
-      height: 15px;
-      width: 150px;
       grid-gap: var(--space-xs);
       text-transform: capitalize;
+      margin-bottom: 0;
+      height: 100%;
     }
   }
 
   @media ${device.laptop} {
     height: ${({ active }) => (active === true ? "60px" : "50px")};
-    width: ${({ active }) => (active === true ? "220px" : "200px")};
+
+    width: ${({ active, actionBtn }) =>
+      (active === true && !actionBtn && "220px") ||
+      (actionBtn && "280px") ||
+      (actionBtn && active && "300px") ||
+      "200px"};
 
     p {
       font-size: var(--font-4);
