@@ -50,8 +50,7 @@ export const SectionTitle = styled.div`
     h4 {
       font-size: var(--font-2);
       position: absolute;
-      right: 280px;
-      top: 70px;
+      top: -10px;
     }
 
     .alignR {

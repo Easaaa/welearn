@@ -9,9 +9,9 @@ export const Container = styled.section`
   grid-auto-flow: row;
   padding: 0 var(--space-md) var(--space-xxl) var(--space-md);
 
-  @media ${device.tablet} {
+/*   @media ${device.tablet} {
     padding-top: 25em;
-  }
+  } */
 
   @media ${device.laptop} {
     padding-top: 5em;

@@ -217,6 +217,7 @@ export const MobileButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  place-self: end;
 
   svg {
     font-size: 30px;

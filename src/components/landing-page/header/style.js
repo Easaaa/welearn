@@ -123,15 +123,8 @@ export const ImgWrapper = styled.div`
     z-index: -3;
     bottom: 0;
 
-    @media ${device.tablet} {
-      display: initial;
-      width: 400px;
-      margin-left: -200px;
-      z-index: -3;
-      bottom: 0;
-    }
-
     @media ${device.laptop} {
+      display: initial;
       position: initial;
       opacity: 1;
       width: 500px;

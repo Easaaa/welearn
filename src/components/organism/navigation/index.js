@@ -28,6 +28,8 @@ const NavLinksComponent = () => (
   </NavLinksWrapMobile>
 )
 
+const isWindow = typeof window !== "undefined" ? window.location.pathname : null
+
 const WrapperRouter = ({ children }) => {
   const isWindow =
     typeof window !== "undefined" ? window.location.pathname : null
@@ -38,13 +40,14 @@ const WrapperRouter = ({ children }) => {
 
 export const Navigation = () => {
   const { userData } = useGetUser()
+  const logo = (isWindow === ROUTES.LANDING && "WeLearn") || userData.schoolName
   return (
     <WrapperRouter>
       <NavWrapper>
         <Logo>
           <h1>
             <StyledLink logo="true" to={ROUTES.LANDING}>
-              {userData.schoolName}
+              {logo}
             </StyledLink>
           </h1>
         </Logo>

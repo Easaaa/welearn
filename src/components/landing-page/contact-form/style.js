@@ -47,7 +47,7 @@ export const FormWrapper = styled.section`
   grid-gap: var(--space-lg);
   place-content: center;
   background-color: var(--primary800);
-  box-shadow: var(--shadow-xs);
+  /*   box-shadow: var(--shadow-xs); */
 `
 
 export const StyledForm = styled.form`

@@ -34,31 +34,29 @@ export const Pricing = () => {
             Pay Annually
           </h5>
         </ToggleSub>
-        <img src={CardsImg} alt="two cards" />
+        {/*      <img src={CardsImg} alt="two cards" /> */}
       </PriceHeader>
       <PriceTable>
         <PriceCard>
           <SubName>
             <h3>Gold 🥇</h3>
             <p>
-              Up to <strong>3</strong> students
+              Up to <strong>infinity</strong> students
             </p>
           </SubName>
           <Price>
-            <h5>{(togglePrice && "65") || "564"} €</h5>
-            <p>/{(togglePrice && "month") || "year"}</p>
+            <h5>{(togglePrice && "Free") || "And Free"} €</h5>
+            <p>/ {(togglePrice && "month") || "year"}</p>
           </Price>
-          <SelectBtn>Select Plan"</SelectBtn>
+          <SelectBtn>Select Plan</SelectBtn>
         </PriceCard>
         <PriceCard>
           <SubName>
             <h3>Gold 💎</h3>
-            <p>
-              Up to <strong>15</strong> students
-            </p>
+            <p>It's really free!</p>
           </SubName>
           <Price>
-            <h5>{(togglePrice && "270") || "2 592"} €</h5>
+            <h5>{(togglePrice && "Free") || "Free"} €</h5>
             <p>/ {(togglePrice && "month") || "year"}</p>
           </Price>
           <SelectBtn highlight>Select Plan</SelectBtn>

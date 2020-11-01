@@ -16,10 +16,10 @@ export const ContactForm = () => {
     <Container id="contact">
       <FormWrapper>
         <FormTitle>
-          <h1 style={{ color: "var(--orange)" }}>👋 Ciao,</h1>
+          <h1 style={{ color: "var(--orange)" }}>👋 Hi there,</h1>
 
           <h5 style={{ fontWeight: "400", lineHeight: "1.6em" }}>
-            ✉️ Inserisci i tuoi data e ti contattermo in un batter d'occhio!
+            Insert your data below and I'll contact you soon.
           </h5>
         </FormTitle>
 
@@ -29,7 +29,7 @@ export const ContactForm = () => {
               type="text"
               name="fullName"
               id="fullName"
-              placeholder="Nome e cognome"
+              placeholder="Name and surname"
               ref={register({ required: "This is required." })}
             />
             {errors.email?.type === "required" && "Your email is not valid"}

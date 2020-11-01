@@ -8,23 +8,19 @@ export const Header = () => {
     <HeaderWrapper>
       <StyledHeader>
         <h1>
-          Crea la tua <span>accademia</span> personale per il tuo{" "}
-          <span>business</span>.
+          Create your new personal <span>free academy</span> for your business.
         </h1>
 
         <p>
-          Mal di testa per cercare di seguire ogni aspetto dell'attività? Digli
-          addio grazie alla nostra piattaforma, la gestione e l'apprendimento
-          non è mai stato cosi facile.
-          {/* We built a powerful tool for your school, it will be so easy that you
-          can't believe it. */}
+          We built a powerful tool for your school, it will be so easy that you
+          can't believe it.
         </p>
         <BtnsWrapper>
           <button>
-            <span>Inizia</span> oggi
+            <span>Start</span> today
           </button>
           <button>
-            <AiOutlinePlayCircle /> Guarda il Video
+            <AiOutlinePlayCircle /> Watch the video
           </button>
         </BtnsWrapper>
       </StyledHeader>
