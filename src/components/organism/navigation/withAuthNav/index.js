@@ -21,6 +21,7 @@ import {
 } from "../style"
 import ProfileImage from "assets/profile.png"
 import { RiArrowDropDownLine } from "react-icons/ri"
+import { AiOutlineSetting } from "react-icons/ai"
 import { MdAdd } from "react-icons/md"
 
 export const WithAuthNav = () => {
@@ -45,31 +46,17 @@ export const WithAuthNav = () => {
             Home
           </StyledLink>
         </li>
-        <AddNewBtn>
-          <StyledLink to={ROUTES.ADD_NEW}>
-            <MdAdd />
-            <span>Add New Content</span>
-          </StyledLink>
-        </AddNewBtn>
+        <li>
+          <StyledLink to={ROUTES.ADD_NEW}>Create New Content</StyledLink>
+        </li>
 
         {currentUser ? (
           <ProfileMenu>
-            {user?.firstName && user?.lastName ? (
-              <ProfilePreview onClick={() => setIsMenuVisible(true)}>
-                <ProfileImg>
-                  <img src={ProfileImage} alt="" />
-                </ProfileImg>
-                <ProfileName>
-                  <h5>
-                    {`${user?.firstName} ${user?.lastName}`}{" "}
-                    <RiArrowDropDownLine />
-                  </h5>
-                  <p>{user && ROLES.convertRoleUI(user.role)}</p>
-                </ProfileName>
-              </ProfilePreview>
-            ) : !currentUser ? null : (
-              <SkeletonProfileNav />
-            )}
+            <ProfilePreview onClick={() => setIsMenuVisible(true)}>
+              <ProfileImg>
+                <RiArrowDropDownLine /> Settings
+              </ProfileImg>
+            </ProfilePreview>
 
             <WithAuthMenu props={{ setIsMenuVisible, isMenuVisible }} />
           </ProfileMenu>
@@ -78,3 +65,20 @@ export const WithAuthNav = () => {
     </NavWrapper>
   )
 }
+
+/* {user?.firstName && user?.lastName ? (
+  <ProfilePreview onClick={() => setIsMenuVisible(true)}>
+    <ProfileImg>
+      <img src={ProfileImage} alt="" />
+    </ProfileImg>
+    <ProfileName>
+      <h5>
+        {`${user?.firstName} ${user?.lastName}`}{" "}
+        <RiArrowDropDownLine />
+      </h5>
+      <p>{user && ROLES.convertRoleUI(user.role)}</p>
+    </ProfileName>
+  </ProfilePreview>
+) : !currentUser ? null : (
+  <SkeletonProfileNav />
+)} */

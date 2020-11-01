@@ -1,7 +1,7 @@
 import React from "react"
 import * as ROUTES from "constants/routes"
 import { WithAuthNav } from "./withAuthNav"
-
+import useGetUser from "hooks/useGetUser"
 import { CgMenuRight } from "react-icons/cg"
 import {
   NavWrapper,
@@ -37,13 +37,14 @@ const WrapperRouter = ({ children }) => {
 }
 
 export const Navigation = () => {
+  const { userData } = useGetUser()
   return (
     <WrapperRouter>
       <NavWrapper>
         <Logo>
           <h1>
             <StyledLink logo="true" to={ROUTES.LANDING}>
-              WeLearn
+              {userData.schoolName}
             </StyledLink>
           </h1>
         </Logo>

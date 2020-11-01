@@ -3,7 +3,7 @@ import { navigate } from "gatsby"
 import useGetUser from "hooks/useGetUser"
 import { HomeContainer, Header, Img, MissingField } from "./style"
 import { Button } from "components/atoms/button"
-import GamingImg from "assets/gaming.svg"
+import GamingImg from "assets/creative.png"
 import { RiErrorWarningLine } from "react-icons/ri"
 import { PageLoader } from "components/atoms/page-loader"
 

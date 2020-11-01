@@ -47,14 +47,13 @@ export const Logo = styled.div`
         font-style: italic;
         &:after {
             letter-spacing: 0;
-            content: "beta";
+            content: "by WeLearn";
             position: absolute;
             color: var(--main-red);
             font-size: var(--font-3);
             font-weight: 600;
             left: 0;
             bottom: -1.2em;
-            text-transform: uppercase;
         }
       }`}
 `
@@ -68,7 +67,7 @@ export const NavLinksWrap = styled.ul`
   align-items: center;
 
   @media ${device.tablet} {
-    grid-gap: var(--space-xl);
+    grid-gap: 20px;
   }
 
   @media ${device.laptop} {
@@ -97,17 +96,19 @@ export const StyledLink = styled(Link)`
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  transition: bottom 50ms ease-in-out;
   text-transform: capitalize;
-  padding: ${({ logo }) => (logo && "0") || "var(--space-xxs);"};
-  bottom: 0;
+  padding: ${({ logo }) => (logo && "0") || "5px"};
+  border-radius: 5px;
+
+  transition: background 50ms ease-in-out;
 
   svg {
     transition: transform 0.3s ease-in-out;
   }
 
-  &:hover {
-    bottom: ${({ logo }) => (logo && "0") || "0.5rem"};
+  &:hover,
+  &:active {
+    background: ${({ logo }) => (logo && "transparent") || "#eaeaea"};
 
     svg {
       transform: translateX(15px);
@@ -121,7 +122,6 @@ export const ProfileMenu = styled.li`
   align-items: center;
   place-content: center;
   grid-gap: var(--space-md);
-  padding: var(--space-xxs);
   border-radius: 10px;
   display: none;
 
@@ -135,12 +135,28 @@ export const ProfilePreview = styled.div`
   align-items: center;
   place-content: center;
   grid-gap: var(--space-md);
-  padding: var(--space-xxs);
   cursor: pointer;
 `
 
 export const ProfileImg = styled.div`
-  max-width: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  padding: 5px;
+  border-radius: 5px;
+
+  transition: background 50ms ease-in-out;
+
+  &:hover,
+  &:active {
+    background: #eaeaea;
+  }
+
+  svg {
+    font-size: 24px;
+  }
 `
 export const ProfileName = styled.div`
   display: grid;
@@ -162,13 +178,17 @@ export const ProfileName = styled.div`
   }
 `
 export const LiStyledLogin = styled.li`
-  width: 120px;
-  height: 45px;
+  width: 100px;
+  height: 40px;
   border: 2px solid var(--secondary800);
   border-radius: 5px;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: var(--secondary800);
+    ${StyledLink} {
+      background-color: var(--secondary800);
+    }
   }
 
   ${StyledLink} {
@@ -177,8 +197,8 @@ export const LiStyledLogin = styled.li`
     justify-content: center;
     height: 100%;
 
-    &:hover {
-      bottom: 0;
+    &:hover,
+    &:active {
       color: var(--main-white);
     }
   }
@@ -218,11 +238,10 @@ export const StyledPopup = styled(Popup)`
 `
 export const AddNewBtn = styled.li`
   position: relative;
-  border: 2px solid var(--secondary800);
   border-radius: 5px;
   padding: 5px;
 
-  span {
+  /*  span {
     display: none;
     position: absolute;
     top: 60px;
@@ -236,11 +255,12 @@ export const AddNewBtn = styled.li`
     z-index: 999;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
   ${StyledLink} {
-    &:hover {
-      bottom: 0;
+    &:hover,
+    &:active {
+      background: var(--secondary800);
     }
 
     svg {
@@ -249,7 +269,8 @@ export const AddNewBtn = styled.li`
     }
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     background: var(--secondary800);
 
     span {

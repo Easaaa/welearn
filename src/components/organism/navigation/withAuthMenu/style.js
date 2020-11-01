@@ -4,7 +4,7 @@ import { device } from "styles/mediaQuery"
 export const DropDownMenu = styled.div`
   position: absolute;
   top: 75px;
-  left: 0;
+  right: 0;
   box-shadow: var(--shadow-md);
   width: 200px;
   display: grid;

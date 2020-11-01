@@ -25,7 +25,6 @@ const SchoolProvider = ({ children }) => {
     <SchoolContext.Provider
       value={{
         school,
-        setSchool,
       }}
     >
       {children}
