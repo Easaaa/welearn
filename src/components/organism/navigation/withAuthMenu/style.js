@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const DropDownMenu = styled.div`
   position: absolute;
@@ -10,18 +10,18 @@ export const DropDownMenu = styled.div`
   display: grid;
   place-content: center;
   border-radius: 10px;
-  padding: var(--space-md) 0;
+  padding: var(--space-md);
   z-index: 100;
   background-color: var(--primary800);
 
   h5 {
     position: relative;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
     font-size: var(--font-3);
 
-    &:after {
-      content: "";
+    /* &:after {
+      content: '';
       position: absolute;
       bottom: -5px;
       left: 50%;
@@ -29,7 +29,7 @@ export const DropDownMenu = styled.div`
       width: 150px;
       height: 1px;
       background: var(--secondary800);
-    }
+    } */
   }
 
   ul {
@@ -39,11 +39,20 @@ export const DropDownMenu = styled.div`
       font-weight: 400;
       margin: var(--space-xs) 0;
 
+      p {
+        line-height: var(--line-height-xl);
+        font-size: 12px;
+        color: #999999;
+        margin: 0;
+      }
+
       a {
         display: grid;
         grid-auto-flow: column;
         align-items: center;
+        justify-content: start;
+        grid-gap: 5px;
       }
     }
   }
-`
+`;

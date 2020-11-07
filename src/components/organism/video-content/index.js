@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react"
-import { CourseContext } from "providers/course-provider"
-import useGetUser from "hooks/useGetUser"
+import React, { useState, useContext, useEffect } from 'react';
+import { CourseContext } from 'providers/course-provider';
+import useGetUser from 'hooks/useGetUser';
 
 import {
   Content,
@@ -16,20 +16,20 @@ import {
   Name,
   Actions,
   NewComment,
-} from "./style"
+} from './style';
 
 export const VideoContent = ({ item }) => {
-  const { courseState, setCourseState } = useContext(CourseContext)
-  const { userData } = useGetUser()
+  const { courseState, setCourseState } = useContext(CourseContext);
+  const { userData } = useGetUser();
   const [contentNav, setContentNav] = useState({
     about: true,
     comments: false,
     notes: false,
-  })
+  });
 
   const contentNavUI = () => {
     if (contentNav.about === true) {
-      return <About>{item.description}</About>
+      return <About>{item.description}</About>;
     }
     if (contentNav.comments === true) {
       return (
@@ -51,25 +51,25 @@ export const VideoContent = ({ item }) => {
             </Actions>
           </Comment>
           <NewComment>
-            <input type="text" placeholder="Commenta o rispondi..." />
+            <input type='text' placeholder='Commenta o rispondi...' />
             <div>
               <button>Cancella</button>
               <button>Rispondi</button>
             </div>
           </NewComment>
         </Comments>
-      )
+      );
     }
     if (contentNav.notes === true) {
       return (
         <Notes>
           {item.notes && item.notes.length > 1
             ? item.notes
-            : "Il creatore non ha fornito nessuna nota, oppure non aveva voglia di aggiungere altro."}
+            : 'Il creatore non ha fornito nessuna nota, oppure non aveva voglia di aggiungere altro.'}
         </Notes>
-      )
+      );
     }
-  }
+  };
 
   return (
     <Content>
@@ -82,9 +82,8 @@ export const VideoContent = ({ item }) => {
               comments: false,
               notes: false,
             })
-          }
-        >
-          Descrizione
+          }>
+          Descriptions
         </button>
         {/*  <button
           className={`${contentNav.comments}`}
@@ -107,13 +106,12 @@ export const VideoContent = ({ item }) => {
               comments: false,
               notes: true,
             })
-          }
-        >
-          Note & Risorse
+          }>
+          Notes & Resources
         </button>
       </ContentNav>
 
       {contentNavUI()}
     </Content>
-  )
-}
+  );
+};

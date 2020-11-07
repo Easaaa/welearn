@@ -67,10 +67,10 @@ export const Course = ({ item }) => {
       <Header>
         <button onClick={() => navigate(ROUTES.COURSES)}>
           {' '}
-          <BsArrowLeftShort /> Indietro
+          <BsArrowLeftShort /> Back
         </button>
         <h1>{item.title}</h1>
-        <p>Creato da {item.madeByFullName}</p>
+        <p>Created by {item.madeByFullName}</p>
       </Header>
       <VideoInfos>
         <p className='type'>{item.type.replace('_', ' ')}</p>
@@ -80,18 +80,18 @@ export const Course = ({ item }) => {
       {position === 0 ? (
         <WelcomeCourse>
           <h3>
-            👏 Complimenti <span>{userData.firstName}</span>,
+            👏 Congrats <span>{userData.firstName}</span>,
           </h3>
           <h5>
-            stai per iniziare questo nuovo corso, ricordati che per ottenere il
-            miglior risultato è importantissimo fare gli esercizi e seguire i
-            consigli che incontrerai durante il percorso.
+            you are near to start a new path, remember to have best results it's
+            really important to make the exercises and follow the suggestions
+            you are going to discover during your learning.
             <br />
             <br />
-            Buona fortuna e ricordati che puoi dare un occhio alla descrizione e
-            alle note qua sotto 👇.
+            Good luck and remember you can find answer and materials in the
+            section below 👇.
           </h5>
-          <button onClick={handleStartLesson}>Inizia</button>
+          <button onClick={handleStartLesson}>Start</button>
         </WelcomeCourse>
       ) : (
         <VideoContainer>

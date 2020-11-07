@@ -42,7 +42,7 @@ export const MediaCard = ({ data, isCourse, thirdSize }) => {
           ) : null}
         </Title>
 
-        <MadeBy>Creato da {data.madeByFullName}</MadeBy>
+        <MadeBy>Created by {data.madeByFullName}</MadeBy>
 
         <Stats>
           <Level>
@@ -67,7 +67,7 @@ export const MediaCard = ({ data, isCourse, thirdSize }) => {
           </Duration>
         </Stats>
       </ContentRow>
-      <ButtonCta>{isCourse ? 'Inizia Corso' : 'Guarda Ora'}</ButtonCta>
+      <ButtonCta>{isCourse ? 'Start Course' : 'Watch Now'}</ButtonCta>
     </CardWrapper>
   );
 };

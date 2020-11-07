@@ -17,11 +17,8 @@ export const Home = () => {
       ) : (
         <Header>
           <h1>
-            <span>Benvenuto</span>{' '}
-            {userData && userData.firstName
-              ? userData.firstName
-              : 'sconosciuto'}
-            !
+            <span>Welcome</span>{' '}
+            {userData && userData.firstName ? userData.firstName : 'UNKNOWN'}!
           </h1>
           {(userData && !userData.firstName) || !userData.lastName ? (
             <MissingField>
@@ -41,7 +38,7 @@ export const Home = () => {
               </Button>
             </MissingField>
           ) : (
-            <p>Scegli una categoria e buon apprendimento!</p>
+            <p>Choose a path and good luck!</p>
           )}
         </Header>
       )}
