@@ -1,40 +1,31 @@
-import { useEffect, useContext } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { FirebaseContext } from "lib/firebase"
+import { useEffect, useState, useContext } from 'react';
+import { FirebaseContext } from '../lib/firebase';
 
 const useGetUser = () => {
-  const { firebase } = useContext(FirebaseContext)
-  const userErr = false
-  const userLoad = false
-  const data = useStaticQuery(graphql`
-    {
-      allUser(filter: { email: { eq: "leonardotononi@gmail.com" } }) {
-        edges {
-          node {
-            createdAt(fromNow: true)
-            email
-            firstName
-            id
-            lastName
-            role
-            schoolId
-            schoolName
-            skype
-            uid
-          }
+  const { firebase, currentUser } = useContext(FirebaseContext);
+  const [data, setData] = useState(null);
+  const userErr = false;
+  const [userLoad, setUserLoad] = useState(true);
+
+  useEffect(() => {
+    if (firebase && currentUser) {
+      firebase.getUser(currentUser.uid).then((user) => {
+        if (user) {
+          setData(user);
+          typeof window !== 'undefined' &&
+            window.localStorage.setItem('userRole', JSON.stringify(user.role));
         }
-      }
+      });
     }
-  `)
+  }, []);
 
   useEffect(() => {
     if (data) {
-      typeof window !== "undefined" &&
-        window.localStorage.setItem("userRole", JSON.stringify("level_5"))
+      setUserLoad(false);
     }
-  }, [data])
+  }, [data]);
 
-  return { userErr, userLoad, userData: data.allUser.edges[0].node }
-}
+  return { userErr, userLoad, userData: data };
+};
 
-export default useGetUser
+export default useGetUser;

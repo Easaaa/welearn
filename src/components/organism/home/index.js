@@ -1,14 +1,15 @@
-import React from "react"
-import { navigate } from "gatsby"
-import useGetUser from "hooks/useGetUser"
-import { HomeContainer, Header, Img, MissingField } from "./style"
-import { Button } from "components/atoms/button"
-import GamingImg from "assets/creative.png"
-import { RiErrorWarningLine } from "react-icons/ri"
-import { PageLoader } from "components/atoms/page-loader"
+import React from 'react';
+import { navigate } from 'gatsby';
+import useGetUser from 'hooks/useGetUser';
+import { HomeContainer, Header, Img, MissingField } from './style';
+import { Button } from 'components/atoms/button';
+import GamingImg from 'assets/creative.png';
+import { RiErrorWarningLine } from 'react-icons/ri';
+import { PageLoader } from 'components/atoms/page-loader';
 
 export const Home = () => {
-  const { userData, userLoad } = useGetUser()
+  const { userData, userLoad } = useGetUser();
+
   return (
     <HomeContainer>
       {userLoad ? (
@@ -16,10 +17,10 @@ export const Home = () => {
       ) : (
         <Header>
           <h1>
-            <span>Benvenuto</span>{" "}
+            <span>Benvenuto</span>{' '}
             {userData && userData.firstName
               ? userData.firstName
-              : "sconosciuto"}
+              : 'sconosciuto'}
             !
           </h1>
           {(userData && !userData.firstName) || !userData.lastName ? (
@@ -33,8 +34,8 @@ export const Home = () => {
                 <span>2.</span> Goditi la nostra applicazione, la stiamo creando
                 con molto amore. 🤓
               </h5>
-              <Button onClick={() => navigate("/app/school/profile")}>
-                {" "}
+              <Button onClick={() => navigate('/app/school/profile')}>
+                {' '}
                 <RiErrorWarningLine />
                 Completa ora
               </Button>
@@ -45,7 +46,7 @@ export const Home = () => {
         </Header>
       )}
 
-      <Img src={GamingImg} alt="teacher with window" />
+      <Img src={GamingImg} alt='teacher with window' />
     </HomeContainer>
-  )
-}
+  );
+};

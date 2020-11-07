@@ -1,47 +1,47 @@
-import React, { useRef, useContext, useState } from "react"
-import { FirebaseContext } from "../../../lib/firebase"
-import { useForm } from "react-hook-form"
+import React, { useRef, useContext, useState } from 'react';
+import { FirebaseContext } from '../../../lib/firebase';
+import { useForm } from 'react-hook-form';
 
-import useGetUser from "hooks/useGetUser"
-import * as ROLES from "constants/roles"
-import { ProfileContainer } from "./style"
-import { Button } from "components/atoms/button"
-import { ResultModal, useResultModal } from "components/organism/modals"
+import useGetUser from 'hooks/useGetUser';
+import * as ROLES from 'constants/roles';
+import { ProfileContainer } from './style';
+import { Button } from 'components/atoms/button';
+import { ResultModal, useResultModal } from 'components/organism/modals';
 
 export const Profile = () => {
-  const { firebase } = useContext(FirebaseContext)
-  const { handleSubmit, register, watch } = useForm()
-  const { userErr, userLoad, userData } = useGetUser()
-  const { resultMsg, setResultMsg } = useResultModal()
-  const [isBtnLoading, setIsBtnLoading] = useState(false)
+  const { firebase } = useContext(FirebaseContext);
+  const { handleSubmit, register, watch } = useForm();
+  const { userErr, userLoad, userData } = useGetUser();
+  const { resultMsg, setResultMsg } = useResultModal();
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
 
-  const password = useRef({})
-  password.current = watch("password", "")
+  const password = useRef({});
+  password.current = watch('password', '');
 
-  const onSubmit = async values => {
-    const { email, firstName, lastName, skype } = values
-    await setIsBtnLoading(true)
+  const onSubmit = async (values) => {
+    const { email, firstName, lastName, skype } = values;
+    await setIsBtnLoading(true);
     await firebase
       .updateProfile({ email, firstName, lastName, skype })
       .then(() => {
         setResultMsg({
-          type: "success",
-          title: "User profile updated.",
-        })
-        setIsBtnLoading(false)
+          type: 'success',
+          title: 'User profile updated.',
+        });
+        setIsBtnLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setResultMsg({
-          type: "error",
-          title: "Error updating profile.",
-        })
-        setIsBtnLoading(false)
-      })
-  }
+          type: 'error',
+          title: 'Error updating profile.',
+        });
+        setIsBtnLoading(false);
+      });
+  };
 
-  const user = userData && userData
+  const user = userData && userData;
 
-  if (userLoad) return <p>Loading</p>
+  if (userLoad) return <p>Loading</p>;
 
   if (userErr) {
     return (
@@ -49,14 +49,16 @@ export const Profile = () => {
         Sorry, It seems there is an error with your user data. Contact the
         support for more informations.
       </p>
-    )
+    );
   }
 
-  const notFieldUI = field => {
+  const notFieldUI = (field) => {
     return !field || field.length === 0
-      ? { border: "2px solid var(--orange)" }
-      : null
-  }
+      ? { border: '2px solid var(--orange)' }
+      : null;
+  };
+
+  console.log(userData);
 
   return (
     <ProfileContainer>
@@ -65,64 +67,64 @@ export const Profile = () => {
         <h5>Profilo</h5>
       </header>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="firstName">
+        <label htmlFor='firstName'>
           Nome
           <input
-            type="text"
-            name="firstName"
+            type='text'
+            name='firstName'
             defaultValue={user.firstName}
             ref={register}
             style={notFieldUI(user.firstName)}
           />
         </label>
-        <label htmlFor="lastName">
+        <label htmlFor='lastName'>
           Cognome
           <input
-            type="text"
-            name="lastName"
+            type='text'
+            name='lastName'
             defaultValue={user.lastName}
             ref={register}
             style={notFieldUI(user.lastName)}
           />
         </label>
-        <label htmlFor="skype">
+        <label htmlFor='skype'>
           Nome Skype
           <input
-            type="text"
-            name="skype"
+            type='text'
+            name='skype'
             defaultValue={user.skype}
             ref={register}
             style={notFieldUI(user.skype)}
           />
         </label>
-        <label htmlFor="email">
+        <label htmlFor='email'>
           Email
           <input
-            type="text"
-            name="email"
+            type='text'
+            name='email'
             defaultValue={user.email}
             ref={register}
           />
         </label>
-        <label htmlFor="schoolName">
+        <label htmlFor='schoolName'>
           Nome Scuola
           <input
-            type="string"
-            name="schoolName"
+            type='string'
+            name='schoolName'
             defaultValue={user.schoolName}
             disabled
           />
         </label>
-        <label htmlFor="role">
+        <label htmlFor='role'>
           Ruolo
           <input
-            type="text"
-            name="role"
+            type='text'
+            name='role'
             disabled
             defaultValue={ROLES.convertRoleUI(user.role)}
           />
         </label>
-        <Button type="submit" spinnerOn={isBtnLoading}>
+        <Button type='submit' spinnerOn={isBtnLoading}>
           Salva
         </Button>
       </form>
@@ -130,5 +132,5 @@ export const Profile = () => {
         <ResultModal type={resultMsg.type} title={resultMsg.title} />
       ) : null}
     </ProfileContainer>
-  )
-}
+  );
+};

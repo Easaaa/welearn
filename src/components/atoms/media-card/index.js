@@ -1,10 +1,10 @@
-import React from "react"
-import { checkBlockAccess } from "utils/blockAccess"
-import useGetUser from "hooks/useGetUser"
-import { MdBookmarkBorder, MdLock } from "react-icons/md"
-import { WiTime3 } from "react-icons/wi"
-import { AiFillSignal, AiOutlinePlayCircle } from "react-icons/ai"
-import { convertRoleUI } from "constants/roles"
+import React from 'react';
+import { checkBlockAccess } from 'utils/blockAccess';
+import useGetUser from 'hooks/useGetUser';
+import { MdBookmarkBorder, MdLock } from 'react-icons/md';
+import { WiTime3 } from 'react-icons/wi';
+import { AiFillSignal, AiOutlinePlayCircle } from 'react-icons/ai';
+import { convertRoleUI } from 'constants/roles';
 import {
   CardWrapper,
   ImgRow,
@@ -17,25 +17,24 @@ import {
   MadeBy,
   BookMark,
   ButtonCta,
-} from "./style"
+} from './style';
 
 export const MediaCard = ({ data, isCourse, thirdSize }) => {
-  const { userData } = useGetUser()
-  const role = userData && userData.role
-  const requiredRole = data && data.role
+  const { userData } = useGetUser();
+  const role = userData && userData.role;
+  const requiredRole = data && data.role;
 
   return (
     <CardWrapper
-      class="custom-shape-divider-bottom-1595007141"
-      style={checkBlockAccess(role, requiredRole) ? { opacity: ".4" } : null}
-      thirdSize={thirdSize}
-    >
-      {!isCourse ? <AiOutlinePlayCircle className="videoIcon" /> : null}
+      class='custom-shape-divider-bottom-1595007141'
+      style={checkBlockAccess(role, requiredRole) ? { opacity: '.4' } : null}
+      thirdSize={thirdSize}>
+      {!isCourse ? <AiOutlinePlayCircle className='videoIcon' /> : null}
       <ImgRow src={`https://picsum.photos/1200/900?random=${data.id}`} />
       <ContentRow>
         <Title>
           <h3>
-            <span>{data.type.replace("_", " ")}.</span>
+            <span>{data.type.replace('_', ' ')}.</span>
             <br /> {data.title}
           </h3>
           {isCourse ? (
@@ -54,7 +53,7 @@ export const MediaCard = ({ data, isCourse, thirdSize }) => {
 
           {checkBlockAccess(role, requiredRole) ? (
             <BookMark>
-              {" "}
+              {' '}
               <MdLock />
             </BookMark>
           ) : null}
@@ -62,13 +61,13 @@ export const MediaCard = ({ data, isCourse, thirdSize }) => {
           <Duration>
             {!isCourse ? (
               <p>
-                <WiTime3 /> {data.duration.replace(":", " ")}
+                <WiTime3 /> {data.duration.replace(':', ' ')}
               </p>
             ) : null}
           </Duration>
         </Stats>
       </ContentRow>
-      <ButtonCta>{isCourse ? "Inizia Corso" : "Guarda Ora"}</ButtonCta>
+      <ButtonCta>{isCourse ? 'Inizia Corso' : 'Guarda Ora'}</ButtonCta>
     </CardWrapper>
-  )
-}
+  );
+};

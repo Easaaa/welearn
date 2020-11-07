@@ -1,29 +1,27 @@
-import React from "react"
-import { graphql } from "gatsby"
-
-import { Layout } from "components/organism/layout"
-import { Header } from "components/landing-page/header"
-import { HowItWorks } from "components/landing-page/how-it-works"
-import { Dashboard } from "components/landing-page/dashboard"
-import { Product } from "components/landing-page/product"
-import { Development } from "components/landing-page/development"
-import { Pricing } from "components/landing-page/pricing"
-import { ContactForm } from "components/landing-page/contact-form"
-import { Footer } from "components/organism/footer"
-import { Login } from "components/organism/login"
+import React, { useContext } from 'react';
+import { navigate } from 'gatsby';
+import { FirebaseContext } from '../lib/firebase';
+import { Layout } from '../components/organism/layout';
+import { Login } from '../components/organism/login';
+import { PageLoader } from '../components/atoms/page-loader';
 
 const LandingPage = () => {
+  const { currentUser, firebase, isDbLoading } = useContext(FirebaseContext);
+
+  if (isDbLoading) {
+    return <PageLoader />;
+  }
+
+  if (currentUser) {
+    navigate(`/home`);
+    return null;
+  }
+
   return (
     <Layout>
-      <Header />
-      <HowItWorks />
-      <Dashboard />
-      <Product />
-      <Development />
-      <Pricing />
-      <ContactForm />
+      <Login />
     </Layout>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;

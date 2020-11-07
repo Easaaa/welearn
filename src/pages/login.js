@@ -1,27 +1,27 @@
-import React, { useEffect, useContext } from "react"
-import { navigate } from "gatsby"
-import { FirebaseContext } from "../lib/firebase"
-import { Layout } from "../components/organism/layout"
-import { Login } from "../components/organism/login"
-import { PageLoader } from "../components/atoms/page-loader"
+import React, { useContext } from 'react';
+import { navigate } from 'gatsby';
+import { FirebaseContext } from '../lib/firebase';
+import { Layout } from '../components/organism/layout';
+import { Login } from '../components/organism/login';
+import { PageLoader } from '../components/atoms/page-loader';
 
 const LoginPage = () => {
-  const { currentUser, firebase, isDbLoading } = useContext(FirebaseContext)
+  const { currentUser, firebase, isDbLoading } = useContext(FirebaseContext);
 
   if (isDbLoading) {
-    return <PageLoader />
+    return <PageLoader />;
   }
 
   if (currentUser) {
-    navigate(`/home`)
-    return null
+    navigate(`/home`);
+    return null;
   }
 
   return (
     <Layout>
       <Login />
     </Layout>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
