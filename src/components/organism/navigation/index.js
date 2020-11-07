@@ -63,7 +63,7 @@ export const Navigation = () => {
           <NavLinksComponent />
         </StyledPopup>
 
-        <NavLinksWrap>
+        {/*  <NavLinksWrap>
           <li>
             <a href='#pricing'>Pricing</a>
           </li>
@@ -73,7 +73,7 @@ export const Navigation = () => {
           <LiStyledLogin>
             <StyledLink to={ROUTES.LOGIN}>Login</StyledLink>
           </LiStyledLogin>
-        </NavLinksWrap>
+        </NavLinksWrap> */}
       </NavWrapper>
     </WrapperRouter>
   );

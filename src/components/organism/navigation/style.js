@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
-import Popup from "reactjs-popup"
-import { Link } from "gatsby"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
+import Popup from 'reactjs-popup';
+import { Link } from 'gatsby';
 
 export const NavWrapper = styled.nav`
   display: grid;
@@ -17,7 +17,7 @@ export const NavWrapper = styled.nav`
     grid-template-rows: 1fr;
     padding: var(--space-md);
   }
-`
+`;
 export const Logo = styled.div`
   position: relative;
 
@@ -56,7 +56,7 @@ export const Logo = styled.div`
             bottom: -1.2em;
         }
       }`}
-`
+`;
 export const NavLinksWrap = styled.ul`
   display: none;
   grid-auto-flow: column;
@@ -74,7 +74,7 @@ export const NavLinksWrap = styled.ul`
     display: grid;
     position: relative;
   }
-`
+`;
 
 export const NavLinksWrapMobile = styled(NavLinksWrap)`
   display: grid;
@@ -89,7 +89,7 @@ export const NavLinksWrapMobile = styled(NavLinksWrap)`
   margin: -125px 0 0 -150px;
   background: var(--primary800);
   border-radius: 10px;
-`
+`;
 
 export const StyledLink = styled(Link)`
   position: relative;
@@ -97,7 +97,7 @@ export const StyledLink = styled(Link)`
   grid-auto-flow: column;
   align-items: center;
   text-transform: capitalize;
-  padding: ${({ logo }) => (logo && "0") || "5px"};
+  padding: ${({ logo }) => (logo && '0') || '5px'};
   border-radius: 5px;
 
   transition: background 50ms ease-in-out;
@@ -108,13 +108,25 @@ export const StyledLink = styled(Link)`
 
   &:hover,
   &:active {
-    background: ${({ logo }) => (logo && "transparent") || "#eaeaea"};
+    background: ${({ logo }) => (logo && 'transparent') || '#eaeaea'};
 
     svg {
       transform: translateX(15px);
     }
   }
-`
+`;
+
+export const StyledLinkGoTo = styled(StyledLink)`
+  background: var(--secondary800);
+  color: var(--primary800);
+  padding: 5px 10px;
+
+  &:hover,
+  &:active {
+    background: var(--secondary900);
+  }
+`;
+
 export const ProfileMenu = styled.li`
   position: relative;
   display: grid;
@@ -128,7 +140,7 @@ export const ProfileMenu = styled.li`
   @media ${device.tablet} {
     display: block;
   }
-`
+`;
 export const ProfilePreview = styled.div`
   display: grid;
   grid-auto-flow: column;
@@ -136,7 +148,7 @@ export const ProfilePreview = styled.div`
   place-content: center;
   grid-gap: var(--space-md);
   cursor: pointer;
-`
+`;
 
 export const ProfileImg = styled.div`
   position: relative;
@@ -157,7 +169,7 @@ export const ProfileImg = styled.div`
   svg {
     font-size: 24px;
   }
-`
+`;
 export const ProfileName = styled.div`
   display: grid;
   grid-auto-flow: row;
@@ -176,7 +188,7 @@ export const ProfileName = styled.div`
   p {
     font-weight: 200;
   }
-`
+`;
 export const LiStyledLogin = styled.li`
   width: 100px;
   height: 40px;
@@ -202,7 +214,7 @@ export const LiStyledLogin = styled.li`
       color: var(--main-white);
     }
   }
-`
+`;
 export const MobileButton = styled.button`
   background: none;
   border: none;
@@ -227,7 +239,7 @@ export const MobileButton = styled.button`
   @media ${device.laptop} {
     display: none;
   }
-`
+`;
 export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
   &-overlay {
@@ -236,7 +248,7 @@ export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-content"
   &-content {
   }
-`
+`;
 export const AddNewBtn = styled.li`
   position: relative;
   border-radius: 5px;
@@ -287,4 +299,4 @@ export const AddNewBtn = styled.li`
       }
     }
   }
-`
+`;

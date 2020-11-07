@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { createGlobalStyle } from "styled-components"
+import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 
   --primary800: #f1f3f6;
   --secondary800: #373b53;
+  --secondary900: #212433;
 
   /* ====== FONT SIZE ====== */
   --font-10: 7rem;
@@ -132,16 +133,16 @@ a {
   p {
     line-height: var(--line-height-xl);
   }
-`
+`;
 
 export const LayoutWrapper = styled.div`
   max-width: 1920px;
   margin: 0 auto;
 
   ${({ school }) => (school && `body {background-color: #2E2F3E}`) || null}
-`
+`;
 export const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   text-align: center;
-`
+`;
