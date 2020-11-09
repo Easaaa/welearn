@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const SearchBarWrap = styled.div`
   position: relative;
@@ -9,7 +10,7 @@ export const SearchBarWrap = styled.div`
     max-width: 500px;
     height: 45px;
     border-radius: 10px;
-    padding: 0 0 0 70px;
+    padding-left: 50px;
     outline: none;
     color: var(--secondary800);
     background: var(--primary800);
@@ -21,7 +22,7 @@ export const SearchBarWrap = styled.div`
 
     &::placeholder {
       color: var(--secondary800) !important;
-      font-size: var(--font-4);
+      font-size: var(--font-2);
       opacity: 0.8;
     }
 
@@ -59,4 +60,4 @@ export const SearchBarWrap = styled.div`
       box-shadow: var(--shadow-md);
     }
   }
-`
+`;

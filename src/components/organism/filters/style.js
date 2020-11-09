@@ -1,51 +1,67 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const FiltersContainer = styled.section`
   width: 100%;
-  position: relative;
-`
+`;
 
 export const GeneralFilters = styled.form`
   display: grid;
   grid-auto-flow: row;
   align-items: center;
   grid-gap: var(--space-md);
+  place-content: center;
 
+  width: 100vw;
   position: absolute;
-  top: 100px;
+  top: 0;
+  left: 0;
   z-index: 99;
 
   background-color: var(--primary800);
   padding: var(--space-md);
-  border: 1px solid var(--primary800);
-  border-radius: 10px;
 
   border: 3px solid var(--secondary800);
+`;
 
-  button {
-    background: transparent;
-    border: none;
-    color: var(--mainWhite);
-    border: none;
-    box-shadow: var(--shadow-xs);
-    cursor: pointer;
-    width: 220px;
-    height: 45px;
-    border-radius: 10px;
-    margin-top: var(--space-md);
-    text-transform: capitalize;
-    transition: box-shadow 50ms ease-in;
-    font-weight: 600;
+export const ResetBtn = styled.button`
+  background: transparent;
+  border: none;
+  color: var(--mainWhite);
+  border: none;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  width: 220px;
+  height: 45px;
+  border-radius: 10px;
+  margin-top: var(--space-md);
+  text-transform: capitalize;
+  transition: box-shadow 50ms ease-in;
+  font-weight: 600;
 
-    &:hover,
-    &:active {
-      box-shadow: var(--shadow-md);
-      background-color: var(--secondary800);
-      color: var(--primary800);
-    }
+  &:hover,
+  &:active {
+    box-shadow: var(--shadow-md);
+    background-color: var(--secondary800);
+    color: var(--primary800);
   }
-`
+`;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+
+  text-transform: capitalize;
+  cursor: pointer;
+
+  background: var(--secondary800);
+  color: var(--primary800);
+  border: none;
+`;
 
 export const Filter = styled.div`
   display: grid;
@@ -83,4 +99,4 @@ export const Filter = styled.div`
       box-shadow: var(--shadow-md);
     }
   }
-`
+`;

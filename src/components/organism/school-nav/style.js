@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { device } from 'styles/mediaQuery';
 
 export const NavWrapper = styled.nav`
   display: grid;
@@ -13,7 +13,9 @@ export const NavWrapper = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 80px;
   z-index: 555;
+  padding-bottom: 5px;
 
   @media ${device.tablet} {
     margin: 0 auto;
@@ -23,18 +25,19 @@ export const NavWrapper = styled.nav`
     padding: var(--space-md);
     position: relative;
     z-index: 1;
+    height: 100%;
   }
-`
+`;
 
 export const StyledLink = styled(Link)`
   place-self: center;
-`
+`;
 
 export const NavItem = styled.div`
-  display: ${({ actionBtn }) => actionBtn && "none"};
+  display: ${({ actionBtn }) => actionBtn && 'none'};
   margin: var(--space-xs);
   position: relative;
-  height: 55px;
+  height: 70px;
   width: 85px;
 
   cursor: pointer;
@@ -44,14 +47,12 @@ export const NavItem = styled.div`
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 5px;
   transition: transform 50ms ease-in-out;
   background-color: ${({ active }) =>
-    active === true ? "var(--secondary800)" : "var(--primary800)"};
+    active === true ? 'var(--secondary800)' : 'var(--primary800)'};
   color: ${({ active }) =>
-    active === true ? "var(--primary800)" : "var(--secondary800)"};
-
-  box-shadow: var(--shadow-xs);
+    active === true ? 'var(--primary800)' : 'var(--secondary800)'};
 
   &:hover {
     transform: scale(1.05);
@@ -82,6 +83,7 @@ export const NavItem = styled.div`
     display: inline-block;
     height: 45px;
     width: 180px;
+    box-shadow: var(--shadow-xs);
 
     p {
       position: relative;
@@ -94,13 +96,12 @@ export const NavItem = styled.div`
   }
 
   @media ${device.laptop} {
-    height: ${({ active }) => (active === true ? "60px" : "50px")};
-
+    height: ${({ active }) => (active === true ? '60px' : '50px')};
     width: ${({ active, actionBtn }) =>
-      (active === true && !actionBtn && "220px") ||
-      (actionBtn && "280px") ||
-      (actionBtn && active && "300px") ||
-      "200px"};
+      (active === true && !actionBtn && '220px') ||
+      (actionBtn && '280px') ||
+      (actionBtn && active && '300px') ||
+      '200px'};
 
     p {
       font-size: var(--font-4);
@@ -111,4 +112,4 @@ export const NavItem = styled.div`
       }
     }
   }
-`
+`;

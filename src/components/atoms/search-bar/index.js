@@ -18,7 +18,7 @@ export const SearchBar = ({ search: { setSearchFilter } }) => {
     <SearchBarWrap>
       <input
         type='text'
-        placeholder='What do you want learn today?'
+        placeholder='Search a title'
         onChange={(e) => handleSearch(e.target.value)}></input>
       <button>
         <FiSearch />

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { FiltersContainer, GeneralFilters, Filter } from './style';
+import {
+  FiltersContainer,
+  GeneralFilters,
+  Filter,
+  CloseBtn,
+  ResetBtn,
+} from './style';
 import { ToggleFilter } from './toggle-filter';
 import { OutsideAlerter } from 'hooks/useClickOutside';
 
@@ -48,6 +54,7 @@ export const Filters = ({ filter, data }) => {
       {isToggle ? (
         <OutsideAlerter toggle={() => setIsToggle(false)}>
           <GeneralFilters id='form'>
+            <CloseBtn onClick={() => setIsToggle(false)}>Close</CloseBtn>
             <Filter>
               <label>Type</label>
               <select
@@ -55,9 +62,8 @@ export const Filters = ({ filter, data }) => {
                 id='type'
                 onChange={(e) => handleFilter(e.target.value, 'type')}>
                 <option value=''>Choose One</option>
-                <option value='mtt'>Mtt</option>
-                <option value='cash_game'>Cash Game</option>
-                <option value='sng'>Sng</option>
+                <option value='productivity'>Productivity</option>
+                <option value='cooking'>Cooking</option>
               </select>
             </Filter>
             <Filter>
@@ -88,7 +94,7 @@ export const Filters = ({ filter, data }) => {
                 ))}
               </select>
             </Filter>
-            <button onClick={handleReset}>Reset</button>
+            <ResetBtn onClick={handleReset}>Reset</ResetBtn>
           </GeneralFilters>
         </OutsideAlerter>
       ) : null}
