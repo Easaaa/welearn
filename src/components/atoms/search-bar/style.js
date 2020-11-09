@@ -33,6 +33,11 @@ export const SearchBarWrap = styled.div`
     &::-ms-input-placeholder {
       color: var(--secondary800);
     }
+
+    &:hover,
+    &:active {
+      box-shadow: var(--shadow-md);
+    }
   }
 
   button {
@@ -54,10 +59,11 @@ export const SearchBarWrap = styled.div`
     }
   }
 
-  &:hover,
-  &:active {
+  @media ${device.laptop} {
+    margin-left: 20px;
+
     input {
-      box-shadow: var(--shadow-md);
+      height: 50px;
     }
   }
 `;

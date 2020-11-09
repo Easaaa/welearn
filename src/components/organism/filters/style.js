@@ -13,15 +13,29 @@ export const GeneralFilters = styled.form`
   place-content: center;
 
   width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 9999;
 
   background-color: var(--primary800);
   padding: var(--space-md);
 
-  border: 3px solid var(--secondary800);
+  ${({ isToggle }) =>
+    !isToggle &&
+    `
+    display: none;
+  `}
+
+  @media ${device.laptop} {
+    display: grid;
+    position: relative;
+    grid-auto-flow: column;
+    place-content: start;
+    border: none;
+    height: 100%;
+  }
 `;
 
 export const ResetBtn = styled.button`
@@ -29,21 +43,19 @@ export const ResetBtn = styled.button`
   border: none;
   color: var(--mainWhite);
   border: none;
-  box-shadow: var(--shadow-xs);
   cursor: pointer;
-  width: 220px;
-  height: 45px;
+  width: 140px;
+  height: 50px;
   border-radius: 10px;
-  margin-top: var(--space-md);
+  margin-top: 35px;
   text-transform: capitalize;
   transition: box-shadow 50ms ease-in;
   font-weight: 600;
+  font-size: var(--font-4);
 
   &:hover,
   &:active {
-    box-shadow: var(--shadow-md);
-    background-color: var(--secondary800);
-    color: var(--primary800);
+    box-shadow: var(--shadow-xs);
   }
 `;
 

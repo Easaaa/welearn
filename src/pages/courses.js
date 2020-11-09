@@ -1,30 +1,30 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { CourseContext } from "../providers/course-provider"
-import { SchoolContext } from "../providers/school-provider"
+import React, { useContext, useEffect, useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { CourseContext } from '../providers/course-provider';
+import { SchoolContext } from '../providers/school-provider';
 
-import { Layout } from "components/organism/layout/"
-import { Filters } from "components/organism/filters"
-import { CoursesList } from "components/organism/courses-list"
-import { SearchBar } from "components/atoms/search-bar"
-import { Section } from "components/atoms/section"
-import PrivateRoute from "components/atoms/privateRoute"
+import { Layout } from 'components/organism/layout/';
+import { Filters } from 'components/organism/filters';
+import { CoursesList } from 'components/organism/courses-list';
+import { SearchBar } from 'components/atoms/search-bar';
+import { Wrapper } from 'components/atoms/section';
+import PrivateRoute from 'components/atoms/privateRoute';
 
 const filterDefaultState = {
   toggle: false,
   filterFor: null,
   filterVal: null,
   limit: 10,
-}
+};
 
 const CoursesPage = () => {
-  const [filterState, setFilterState] = useState(filterDefaultState)
-  const { school } = useContext(SchoolContext)
-  const { courseState, setCourseState } = useContext(CourseContext)
+  const [filterState, setFilterState] = useState(filterDefaultState);
+  const { school } = useContext(SchoolContext);
+  const { courseState, setCourseState } = useContext(CourseContext);
   const [searchFilter, setSearchFilter] = useState({
     toggle: false,
-    value: "",
-  })
+    value: '',
+  });
 
   const data = useStaticQuery(graphql`
     {
@@ -56,47 +56,47 @@ const CoursesPage = () => {
         }
       }
     }
-  `)
+  `);
 
-  const loading = false
+  const loading = false;
 
   useEffect(() => {
     if (data) {
-      let array = []
+      let array = [];
       if (!courseState) {
-        data.allCourse.edges.map(item => {
+        data.allCourse.edges.map((item) => {
           array.push({
             courseId: item.node.id,
             currentLesson: 0,
             wistiaId: null,
-          })
-        })
-        setCourseState(array)
+          });
+        });
+        setCourseState(array);
       } else {
-        data.allCourse.edges.map(item => {
-          if (courseState.findIndex(x => x.courseId === item.node.id) !== -1)
-            return
+        data.allCourse.edges.map((item) => {
+          if (courseState.findIndex((x) => x.courseId === item.node.id) !== -1)
+            return;
           else {
-            setCourseState(state => [
+            setCourseState((state) => [
               ...state,
               { courseId: item.node.id, currentLesson: 0, wistiaId: null },
-            ])
+            ]);
           }
-        })
+        });
       }
     }
-  }, [data])
+  }, [data]);
 
   const conditionalData = searchFilter.toggle
-    ? data.allCourse.edges.filter(item =>
+    ? data.allCourse.edges.filter((item) =>
         item.node.title.toLowerCase().includes(searchFilter.value)
       )
-    : data && data.allCourse.edges
+    : data && data.allCourse.edges;
 
   return (
     <PrivateRoute>
       <Layout>
-        <Section container="twoElEnd">
+        <Wrapper>
           <SearchBar search={{ searchFilter, setSearchFilter }} />
           <Filters
             filter={{
@@ -106,7 +106,7 @@ const CoursesPage = () => {
             }}
             data={data && data.allCourse.edges}
           />
-        </Section>
+        </Wrapper>
 
         <CoursesList
           filterState={filterState}
@@ -114,7 +114,7 @@ const CoursesPage = () => {
         />
       </Layout>
     </PrivateRoute>
-  )
-}
+  );
+};
 
-export default CoursesPage
+export default CoursesPage;

@@ -47,57 +47,55 @@ export const Filters = ({ filter, data }) => {
     setIsToggle(false);
     setFilterState(filterDefaultState);
   };
+  const handleClose = (e) => {
+    e.preventDefault();
+    setIsToggle(false);
+  };
 
   return (
     <FiltersContainer>
       <ToggleFilter state={{ isToggle, setIsToggle }} />
-      {isToggle ? (
-        <OutsideAlerter toggle={() => setIsToggle(false)}>
-          <GeneralFilters id='form'>
-            <CloseBtn onClick={() => setIsToggle(false)}>Close</CloseBtn>
-            <Filter>
-              <label>Type</label>
-              <select
-                name='type'
-                id='type'
-                onChange={(e) => handleFilter(e.target.value, 'type')}>
-                <option value=''>Choose One</option>
-                <option value='productivity'>Productivity</option>
-                <option value='cooking'>Cooking</option>
-              </select>
-            </Filter>
-            <Filter>
-              <label>Level</label>
-              <select
-                name='role'
-                id='role'
-                onChange={(e) => handleFilter(e.target.value, 'role')}>
-                <option value=''>Choose One</option>
-                <option value='level_1'>Bronze</option>
-                <option value='level_2'>Silver</option>
-                <option value='level_3'>Gold</option>
-              </select>
-            </Filter>
-            <Filter>
-              <label>Author</label>
-              <select
-                name='author'
-                id='author'
-                onChange={(e) =>
-                  handleFilter(e.target.value, 'madeByFullName')
-                }>
-                <option value=''>Choose One</option>
-                {authorList(data).map((item) => (
-                  <option value={item} key={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </Filter>
-            <ResetBtn onClick={handleReset}>Reset</ResetBtn>
-          </GeneralFilters>
-        </OutsideAlerter>
-      ) : null}
+      <GeneralFilters isToggle={isToggle} id='form'>
+        <CloseBtn onClick={handleClose}>Close</CloseBtn>
+        <Filter>
+          <label>Type</label>
+          <select
+            name='type'
+            id='type'
+            onChange={(e) => handleFilter(e.target.value, 'type')}>
+            <option value=''>Choose One</option>
+            <option value='productivity'>Productivity</option>
+            <option value='cooking'>Cooking</option>
+          </select>
+        </Filter>
+        <Filter>
+          <label>Level</label>
+          <select
+            name='role'
+            id='role'
+            onChange={(e) => handleFilter(e.target.value, 'role')}>
+            <option value=''>Choose One</option>
+            <option value='level_1'>Bronze</option>
+            <option value='level_2'>Silver</option>
+            <option value='level_3'>Gold</option>
+          </select>
+        </Filter>
+        <Filter>
+          <label>Author</label>
+          <select
+            name='author'
+            id='author'
+            onChange={(e) => handleFilter(e.target.value, 'madeByFullName')}>
+            <option value=''>Choose One</option>
+            {authorList(data).map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </Filter>
+        <ResetBtn onClick={handleReset}>Reset</ResetBtn>
+      </GeneralFilters>
     </FiltersContainer>
   );
 };

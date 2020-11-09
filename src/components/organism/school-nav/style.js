@@ -84,6 +84,7 @@ export const NavItem = styled.div`
     height: 45px;
     width: 180px;
     box-shadow: var(--shadow-xs);
+    border-radius: 10px;
 
     p {
       position: relative;

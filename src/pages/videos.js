@@ -1,29 +1,29 @@
-import React, { useContext, useState } from "react"
-import { SchoolContext } from "../providers/school-provider"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useContext, useState } from 'react';
+import { SchoolContext } from '../providers/school-provider';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { SearchBar } from "components/atoms/search-bar"
-import { Layout } from "components/organism/layout"
-import { Filters } from "components/organism/filters"
-import { VideosList } from "components/organism/videos-list"
-import { Section } from "components/atoms/section"
-import PrivateRoute from "components/atoms/privateRoute"
+import { SearchBar } from 'components/atoms/search-bar';
+import { Layout } from 'components/organism/layout';
+import { Filters } from 'components/organism/filters';
+import { VideosList } from 'components/organism/videos-list';
+import { Wrapper } from 'components/atoms/section';
+import PrivateRoute from 'components/atoms/privateRoute';
 
 const filterDefaultState = {
   filterFor: null,
   filterVal: null,
   limit: 20,
   toggle: false,
-}
+};
 
 const VideosPage = () => {
-  const { school } = useContext(SchoolContext)
-  const [filterState, setFilterState] = useState(filterDefaultState)
+  const { school } = useContext(SchoolContext);
+  const [filterState, setFilterState] = useState(filterDefaultState);
   const [searchFilter, setSearchFilter] = useState({
     toggle: false,
-    value: "",
-  })
-  const loading = false
+    value: '',
+  });
+  const loading = false;
   const data = useStaticQuery(graphql`
     {
       allVideo {
@@ -45,27 +45,27 @@ const VideosPage = () => {
         }
       }
     }
-  `)
+  `);
 
   const filterDataWithToggle =
     filterState.toggle &&
-    data.allVideo.edges.filter(item =>
+    data.allVideo.edges.filter((item) =>
       item.node[filterState.filterFor].includes(filterState.filterVal)
-    )
+    );
 
   // render filtered by search or not
   const conditionalData =
     (searchFilter.toggle &&
-      data.allVideo.edges.filter(item =>
+      data.allVideo.edges.filter((item) =>
         item.node.title.toLowerCase().includes(searchFilter.value)
       )) ||
     (filterState.toggle && filterDataWithToggle) ||
-    data?.allVideo.edges
+    data?.allVideo.edges;
 
   return (
     <PrivateRoute>
       <Layout>
-        <Section container="twoElEnd">
+        <Wrapper>
           <SearchBar search={{ searchFilter, setSearchFilter }} />
           <Filters
             filter={{
@@ -76,7 +76,7 @@ const VideosPage = () => {
             }}
             data={data && data.allVideo.edges}
           />
-        </Section>
+        </Wrapper>
         <VideosList
           data={conditionalData}
           loading={loading}
@@ -84,7 +84,7 @@ const VideosPage = () => {
         />
       </Layout>
     </PrivateRoute>
-  )
-}
+  );
+};
 
-export default VideosPage
+export default VideosPage;
