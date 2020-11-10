@@ -11,7 +11,7 @@ export const DropDownMenu = styled.div`
   place-content: center;
   border-radius: 10px;
   padding: var(--space-md);
-  z-index: 100;
+  z-index: 888;
   background-color: var(--primary800);
 
   h5 {
