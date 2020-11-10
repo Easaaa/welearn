@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { MdBookmarkBorder } from 'react-icons/md';
 import { convertRoleUI } from 'constants/roles';
 import { useStickyState } from 'hooks/useStickyState';
@@ -17,6 +17,7 @@ import {
   VideoContainer,
   VideoInfos,
   WelcomeCourse,
+  Breadcrumb,
 } from './style';
 
 export const Course = ({ item }) => {
@@ -69,6 +70,11 @@ export const Course = ({ item }) => {
           {' '}
           <BsArrowLeftShort /> Back
         </button>
+        <Breadcrumb>
+          <Link to={ROUTES.HOME}>Home</Link>
+          <Link to={ROUTES.COURSES}>Videos List</Link>
+          <span>Course</span>
+        </Breadcrumb>
         <h1>{item.title}</h1>
         <p>Created by {item.madeByFullName}</p>
       </Header>

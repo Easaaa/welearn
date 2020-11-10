@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { MdBookmarkBorder } from 'react-icons/md';
 import { VideoContent } from 'components/organism/video-content';
 import { VideoPlayer } from 'components/atoms/video-player';
@@ -10,6 +10,7 @@ import {
   Header,
   VideoContainer,
   VideoInfos,
+  Breadcrumb,
 } from './style';
 import * as ROUTES from 'constants/routes';
 
@@ -24,9 +25,14 @@ export const Video = ({ item }) => {
   return (
     <ComponentContainer>
       <Header>
-        <button onClick={() => navigate(ROUTES.VIDEOS)}>
+        <button className='back-mobile' onClick={() => navigate(ROUTES.VIDEOS)}>
           <BsArrowLeftShort /> Back
         </button>
+        <Breadcrumb>
+          <Link to={ROUTES.HOME}>Home</Link>
+          <Link to={ROUTES.VIDEOS}>Videos List</Link>
+          <span>Video</span>
+        </Breadcrumb>
         <h1>{item.title}</h1>
         <p>Created by {item.madeByFullName}</p>
         {/* <p style={{ textTransform: "capitalize", fontStyle: "italic" }}>
@@ -36,7 +42,7 @@ export const Video = ({ item }) => {
       </Header>
       <VideoInfos>
         <p className='type'>
-          {item && item.type && item.type.replace('_', ' ').toUpperCase()}
+          {item && item.type && item.type.replace('_', ' ')}
         </p>
         <p className='role'>{convertRoleUI(item.role)}</p>
       </VideoInfos>

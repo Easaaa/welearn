@@ -1,9 +1,11 @@
-import React, { useEffect, useContext } from "react"
-import { CourseContext } from "providers/course-provider"
-import ReactPlayer from "react-player"
+import React, { useEffect, useContext } from 'react';
+import { CourseContext } from 'providers/course-provider';
+import ReactPlayer from 'react-player';
+import { PlayerWrapper } from './style';
+import VideoPlaceholder from '../../../assets/video-placeholder.mp4';
 
 export const VideoPlayer = ({ id }) => {
-  const { courseState } = useContext(CourseContext)
+  const { courseState } = useContext(CourseContext);
 
   /* useEffect(() => {
     const script2 = document.createElement("script")
@@ -21,18 +23,21 @@ export const VideoPlayer = ({ id }) => {
   }, [id]) */
 
   return (
-    <ReactPlayer
-      style={{
-        position: "relative",
-        border: "4px solid var(--primary800)",
-        boxShadow: "var(--shadow-xs)",
-        borderRadius: "10px",
-      }}
-      width="100%"
-      height="450px"
-      url=" https://youtu.be/F_OZxUeWKqs"
-    />
-    /*  <div
+    <PlayerWrapper>
+      <ReactPlayer
+        url={VideoPlaceholder}
+        width='100%'
+        height='100%'
+        className='react-player'
+        controls={true}
+        pip={true}
+        stopOnUnmount={false}
+        light={true}
+      />
+    </PlayerWrapper>
+  );
+};
+/*  <div
       class="wistia_responsive_padding"
       style={{
         padding: "56.25% 0 0 0",
@@ -69,5 +74,3 @@ export const VideoPlayer = ({ id }) => {
         ></iframe>
       </div>
     </div> */
-  )
-}

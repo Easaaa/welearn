@@ -18,6 +18,7 @@ export const NavWrapper = styled.nav`
     padding: var(--space-md);
   }
 `;
+
 export const Logo = styled.div`
   position: relative;
 

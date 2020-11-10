@@ -4,8 +4,9 @@ import { device } from 'styles/mediaQuery';
 
 export const NavWrapper = styled.nav`
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
   place-content: center;
+  place-items: center;
 
   background: var(--primary800);
   border-top: 1px solid var(--dirty-white);
@@ -13,9 +14,10 @@ export const NavWrapper = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 100px;
   z-index: 555;
-  padding-bottom: 5px;
+
+  border-radius: 10px;
 
   @media ${device.tablet} {
     margin: 0 auto;
@@ -25,20 +27,34 @@ export const NavWrapper = styled.nav`
     padding: var(--space-md);
     position: relative;
     z-index: 1;
-    height: 100%;
+
+    grid-auto-flow: column;
+    grid-template-columns: inherit;
+    place-content: center;
+    width: 100%;
+    z-index: 555;
   }
 `;
 
 export const StyledLink = styled(Link)`
   place-self: center;
+
+  @media ${device.tablet} {
+    height: 45px;
+    width: 180px;
+  }
+
+  @media ${device.laptop} {
+    height: 60px;
+    width: 200px;
+  }
 `;
 
 export const NavItem = styled.div`
   display: ${({ actionBtn }) => actionBtn && 'none'};
-  margin: var(--space-xs);
   position: relative;
-  height: 70px;
-  width: 85px;
+  height: 100px;
+  width: 100%;
 
   cursor: pointer;
 
@@ -47,17 +63,11 @@ export const NavItem = styled.div`
   align-items: center;
   justify-content: center;
 
-  border-radius: 5px;
   transition: transform 50ms ease-in-out;
   background-color: ${({ active }) =>
     active === true ? 'var(--secondary800)' : 'var(--primary800)'};
   color: ${({ active }) =>
     active === true ? 'var(--primary800)' : 'var(--secondary800)'};
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-md);
-  }
 
   p {
     position: absolute;
@@ -86,6 +96,11 @@ export const NavItem = styled.div`
     box-shadow: var(--shadow-xs);
     border-radius: 10px;
 
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
     p {
       position: relative;
       grid-auto-flow: column;
@@ -97,7 +112,7 @@ export const NavItem = styled.div`
   }
 
   @media ${device.laptop} {
-    height: ${({ active }) => (active === true ? '60px' : '50px')};
+    height: 50px;
     width: ${({ active, actionBtn }) =>
       (active === true && !actionBtn && '220px') ||
       (actionBtn && '280px') ||

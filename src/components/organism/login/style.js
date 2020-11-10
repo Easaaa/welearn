@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const LoginContainer = styled.section`
   background-color: var(--primary800);
@@ -30,7 +30,7 @@ export const LoginContainer = styled.section`
     left: 50%;
     margin: -225px 0 0 -275px;
   }
-`
+`;
 
 export const Btn = styled.button`
   background-color: var(--orange);
@@ -49,7 +49,7 @@ export const Btn = styled.button`
   &:last-of-type {
     background-color: var(--secondary800);
   }
-`
+`;
 
 export const WelcomeCol = styled.div`
   text-align: center;
@@ -60,7 +60,7 @@ export const WelcomeCol = styled.div`
   h2 {
     font-weight: 500;
   }
-`
+`;
 
 export const LoginCol = styled.div`
   display: grid;
@@ -79,7 +79,7 @@ export const LoginCol = styled.div`
     text-align: center;
     max-width: 300px;
   }
-`
+`;
 
 export const StyledForm = styled.form`
   text-align: start;
@@ -104,13 +104,16 @@ export const StyledForm = styled.form`
       margin-top: 10px;
       transition: box-shadow 80ms ease-in-out;
 
+      -webkit-box-shadow: var(--shadow-xs);
+      -webkit-appearance: none;
+
       &:hover,
       &:active {
         box-shadow: var(--shadow-md);
       }
     }
   }
-`
+`;
 
 export const Line = styled.div`
   width: 100%;
@@ -122,4 +125,4 @@ export const Line = styled.div`
     transform: rotate(-90deg);
     width: 500%;
   }
-`
+`;

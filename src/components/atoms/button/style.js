@@ -1,17 +1,16 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const Btn = styled.button`
   background-color: ${({ bgColor }) =>
-    bgColor ? bgColor : "var(--secondary800)"};
-  color: ${({ color }) => (color ? color : "var(--primary800)")};
-  width: ${({ width }) => (width ? width : "200px")};
-  height: ${({ height }) => (height ? height : "40px")};
+    bgColor ? bgColor : 'var(--secondary800)'};
+  color: ${({ color }) => (color ? color : 'var(--primary800)')};
+  width: ${({ width }) => (width ? width : '200px')};
+  height: ${({ height }) => (height ? height : '40px')};
   border: none;
-  display: grid;
+  display: flex;
   place-content: center;
   align-items: center;
-  grid-auto-flow: column;
-  grid-gap: var(--space-xs);
+  flex-direction: column;
   font-weight: 400;
   border-radius: 10px;
   cursor: pointer;
@@ -24,7 +23,7 @@ export const Btn = styled.button`
   &:hover {
     transform: scale(0.98);
   }
-`
+`;
 export const SpinnerContainer = styled.div`
   z-index: 888;
   display: inline-block;
@@ -43,4 +42,4 @@ export const SpinnerContainer = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;

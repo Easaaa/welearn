@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const ComponentContainer = styled.section`
   padding: var(--space-md);
@@ -12,11 +12,11 @@ export const ComponentContainer = styled.section`
   @media ${device.tablet} {
     padding: var(--space-xl);
   }
-`
+`;
 export const Header = styled.header`
   button {
-    background-color: transparent;
-    color: var(--secondary800);
+    background-color: var(--secondary800);
+    color: var(--primary800);
     border: none;
     padding: var(--space-md) 0;
     cursor: pointer;
@@ -24,8 +24,8 @@ export const Header = styled.header`
 
     box-shadow: var(--shadow-xs);
 
-    height: 35px;
-    width: 100px;
+    height: 30px;
+    width: 80px;
     border-radius: 10px;
     margin: 20px 0;
 
@@ -51,13 +51,46 @@ export const Header = styled.header`
     color: var(--orange);
     font-weight: 500;
   }
-`
+
+  @media ${device.tablet} {
+    button {
+      display: none;
+    }
+  }
+`;
+
+export const Breadcrumb = styled.div`
+  display: none;
+  grid-auto-flow: column;
+  place-content: start;
+  align-items: center;
+  justify-items: start;
+  grid-gap: 20px;
+  width: 100%;
+
+  a {
+    color: var(--txt-color-light);
+    position: relative;
+
+    &::after {
+      content: '>';
+      position: absolute;
+      padding-left: 5px;
+      top: 1px;
+    }
+  }
+
+  @media ${device.tablet} {
+    display: grid;
+  }
+`;
+
 export const VideoContainer = styled.div`
   img {
     width: 100%;
     max-width: 800px;
   }
-`
+`;
 
 export const VideoInfos = styled.div`
   display: grid;
@@ -81,8 +114,9 @@ export const VideoInfos = styled.div`
     font-weight: 500;
     border-radius: 5px;
     text-align: center;
+    text-transform: capitalize;
     padding: 0 var(--space-md);
     box-shadow: var(--shadow-xs);
     background-color: var(--primary800);
   }
-`
+`;

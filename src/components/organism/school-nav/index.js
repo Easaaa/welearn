@@ -29,13 +29,6 @@ export const SchoolNav = () => {
             </p>
           </NavItem>
         </StyledLink>
-        {/*  <StyledLink to={ROUTES.ADD_NEW}>
-          <NavItem actionBtn active={url.includes("content") ? true : false}>
-            <p>
-              <IoIosAddCircle /> Add New Content
-            </p>
-          </NavItem>
-        </StyledLink> */}
       </NavWrapper>
     );
   else return null;

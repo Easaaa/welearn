@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "styles/mediaQuery"
+import styled from 'styled-components';
+import { device } from 'styles/mediaQuery';
 
 export const ComponentContainer = styled.section`
   padding: var(--space-md);
@@ -12,11 +12,11 @@ export const ComponentContainer = styled.section`
   @media ${device.tablet} {
     padding: var(--space-xl);
   }
-`
+`;
 export const Header = styled.header`
   button {
-    box-shadow: var(--shadow-xs);
-    color: var(--secondary800);
+    background-color: var(--secondary800);
+    color: var(--primary800);
     border: none;
     cursor: pointer;
     outline: none;
@@ -41,12 +41,45 @@ export const Header = styled.header`
     margin: 0;
     font-size: var(--font-1);
   }
-`
+
+  @media ${device.tablet} {
+    button {
+      display: none;
+    }
+  }
+`;
+
+export const Breadcrumb = styled.div`
+  display: none;
+  grid-auto-flow: column;
+  place-content: start;
+  align-items: center;
+  justify-items: start;
+  grid-gap: 20px;
+  width: 100%;
+
+  a {
+    color: var(--txt-color-light);
+    position: relative;
+
+    &::after {
+      content: '>';
+      position: absolute;
+      padding-left: 5px;
+      top: 1px;
+    }
+  }
+
+  @media ${device.tablet} {
+    display: grid;
+  }
+`;
+
 export const VideoContainer = styled.div`
   img {
     width: 100%;
   }
-`
+`;
 
 export const WelcomeCourse = styled.div`
   max-width: 650px;
@@ -117,7 +150,7 @@ export const WelcomeCourse = styled.div`
       margin-bottom: var(--space-md);
     }
   }
-`
+`;
 
 export const VideoInfos = styled.div`
   display: grid;
@@ -148,4 +181,4 @@ export const VideoInfos = styled.div`
     text-transform: capitalize;
     box-shadow: var(--shadow-xs);
   }
-`
+`;
