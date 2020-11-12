@@ -36,6 +36,7 @@ export const GeneralFilters = styled.form`
     place-content: start;
     border: none;
     height: 100%;
+    width: 100%;
   }
 `;
 
@@ -73,6 +74,10 @@ export const CloseBtn = styled.button`
   background: var(--secondary800);
   color: var(--primary800);
   border: none;
+
+  @media ${device.laptop} {
+    display: none;
+  }
 `;
 
 export const Filter = styled.div`

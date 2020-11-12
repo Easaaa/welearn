@@ -61,8 +61,6 @@ export const Course = ({ item }) => {
     console.log(position);
   };
 
-  if (!userData) return <PageLoader />;
-
   return (
     <ComponentContainer>
       <Header>
