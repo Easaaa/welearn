@@ -47,7 +47,7 @@ export const Video = ({ item }) => {
         <p className='role'>{convertRoleUI(item.role)}</p>
       </VideoInfos>
       <VideoContainer>
-        <VideoPlayer id={item.wistiaId} />
+        <VideoPlayer id={item.wistiaId} useWistia={true} />
       </VideoContainer>
       <VideoContent item={item} />
     </ComponentContainer>

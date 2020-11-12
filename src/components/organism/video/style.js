@@ -71,9 +71,10 @@ export const Breadcrumb = styled.div`
   a {
     color: var(--txt-color-light);
     position: relative;
+    font-size: 12px;
 
     &::after {
-      content: '>';
+      content: '/';
       position: absolute;
       padding-left: 5px;
       top: 1px;
