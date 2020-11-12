@@ -58,6 +58,7 @@ export const Logo = styled.div`
         }
       }`}
 `;
+
 export const NavLinksWrap = styled.ul`
   display: none;
   grid-auto-flow: column;
@@ -81,15 +82,21 @@ export const NavLinksWrapMobile = styled(NavLinksWrap)`
   display: grid;
   grid-auto-flow: row;
   align-items: center;
-  place-content: center;
+  place-content: start;
+
   position: absolute;
-  height: 250px;
-  width: 300px;
+  z-index: 555;
+  height: 35vh;
+  min-height: 245px;
+  width: 100vw;
   left: 50%;
-  top: 50%;
-  margin: -125px 0 0 -150px;
+  top: 99px;
+  margin: 0 0 0 -50vw;
+  padding: var(--space-md);
+
   background: var(--primary800);
-  border-radius: 10px;
+  border-top: 1px solid var(--border-gray);
+  border-bottom: 1px solid var(--border-gray);
 `;
 
 export const StyledLink = styled(Link)`
@@ -191,18 +198,12 @@ export const ProfileName = styled.div`
   }
 `;
 export const LiStyledLogin = styled.li`
-  width: 100px;
-  height: 40px;
-  border: 2px solid var(--secondary800);
+  width: 100%;
+  height: 30px;
   border-radius: 5px;
 
-  &:hover,
-  &:active {
-    background-color: var(--secondary800);
-    ${StyledLink} {
-      background-color: var(--secondary800);
-    }
-  }
+  background-color: var(--red);
+  color: var(--primary800);
 
   ${StyledLink} {
     display: flex;
@@ -210,10 +211,10 @@ export const LiStyledLogin = styled.li`
     justify-content: center;
     height: 100%;
 
-    &:hover,
-    &:active {
-      color: var(--main-white);
-    }
+    /*   &:hover,
+  &:active {
+    color: var(--white);
+  } */
   }
 `;
 export const MobileButton = styled.button`
@@ -224,7 +225,6 @@ export const MobileButton = styled.button`
   width: 50px;
   height: 50px;
 
-  border: 2px solid var(--secondary800);
   border-radius: 5px;
 
   display: flex;
@@ -233,7 +233,7 @@ export const MobileButton = styled.button`
   place-self: end;
 
   svg {
-    font-size: 30px;
+    font-size: 45px;
     color: var(--secondary800);
   }
 
@@ -250,54 +250,58 @@ export const StyledPopup = styled(Popup)`
   &-content {
   }
 `;
-export const AddNewBtn = styled.li`
-  position: relative;
-  border-radius: 5px;
-  padding: 5px;
+export const CtaContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--space-xs);
+  place-content: center;
+  place-self: end;
+  width: 100%;
 
-  /*  span {
-    display: none;
-    position: absolute;
-    top: 60px;
-    width: 160px;
-    height: 45px;
-    margin-left: -80x;
-    left: 50%;
-    background: var(--secondary800);
-    color: var(--main-white);
-    border-radius: 5px;
-    z-index: 999;
-    align-items: center;
-    justify-content: center;
-  } */
+  .secondary {
+    border: none;
+    background-color: transparent;
+    color: var(--primary800);
 
-  ${StyledLink} {
     &:hover,
     &:active {
-      background: var(--secondary800);
-    }
-
-    svg {
-      font-size: 24px;
-      color: var(--secondary800);
+      background: #eaeaea;
     }
   }
 
-  &:hover,
-  &:active {
-    background: var(--secondary800);
-
-    span {
-      display: flex;
-    }
+  .primary_desktop {
+    background-color: var(--secondary800);
+    color: var(--primary800);
 
     ${StyledLink} {
-      color: var(--main-white);
-
-      svg {
-        color: var(--main-white);
-        transform: rotate(360deg);
-      }
+      color: var(--primary800);
     }
+
+    &:hover,
+    &:active {
+      background-color: var(--secondary900);
+    }
+
+    /* {StyledLink} {
+      &:hover,
+      &:active {
+        background-color: var(--red);
+      }
+    } */
+  }
+`;
+export const SimpleLi = styled(LiStyledLogin)`
+  background-color: transparent;
+  color: var(--secondary800);
+
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:active {
+    background: #eaeaea;
   }
 `;

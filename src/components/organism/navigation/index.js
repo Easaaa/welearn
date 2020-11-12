@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import * as ROUTES from 'constants/routes';
 import { WithAuthNav } from './withAuthNav';
 import useGetUser from 'hooks/useGetUser';
-import { CgMenuRight } from 'react-icons/cg';
+import { CgMenuRight, CgClose } from 'react-icons/cg';
+import { BsArrowUpRight } from 'react-icons/bs';
+import { WithAuthMenu } from './withAuthMenu';
 import {
   NavWrapper,
   Logo,
@@ -12,6 +15,8 @@ import {
   LiStyledLogin,
   MobileButton,
   StyledPopup,
+  SimpleLi,
+  CtaContainer,
 } from './style';
 
 const NavLinksComponent = () => (
@@ -53,7 +58,8 @@ export const Navigation = () => {
             </StyledLink>
           </h1>
         </Logo>
-        <StyledPopup
+
+        {/*    <StyledPopup
           trigger={
             <MobileButton>
               <CgMenuRight />
@@ -61,20 +67,45 @@ export const Navigation = () => {
           }
           modal>
           <NavLinksComponent />
-        </StyledPopup>
-
-        {/*  <NavLinksWrap>
-          <li>
-            <a href='#pricing'>Pricing</a>
-          </li>
-          <li>
-            <a href='#contact'>Contact</a>
-          </li>
-          <LiStyledLogin>
-            <StyledLink to={ROUTES.LOGIN}>Login</StyledLink>
-          </LiStyledLogin>
-        </NavLinksWrap> */}
+        </StyledPopup> */}
       </NavWrapper>
     </WrapperRouter>
+  );
+};
+
+export const MobileNavWithAuth = () => {
+  const [navIsVisible, setNavIsVisible] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+  const MenuBtnIcon = (navIsVisible && <CgClose />) || <CgMenuRight />;
+  const URL_ADMIN = 'https://loving-easley-893aaa.netlify.app/login';
+
+  return (
+    <>
+      <MobileButton onClick={() => setNavIsVisible(!navIsVisible)}>
+        {MenuBtnIcon}
+      </MobileButton>
+
+      {navIsVisible && (
+        <NavLinksWrapMobile>
+          <SimpleLi>
+            <Link to={ROUTES.HOME}>Home</Link>
+          </SimpleLi>
+          {/* <LiStyledLogin className='secondary'>
+            <StyledLink to={ROUTES.REGISTER}>Settings</StyledLink>
+          </LiStyledLogin> */}
+          <SimpleLi>
+            <Link to={URL_ADMIN}>
+              Lunch Admin App <BsArrowUpRight />
+            </Link>
+          </SimpleLi>
+          <WithAuthMenu
+            props={{ isMenuVisible, setIsMenuVisible }}
+            isMobile={true}
+          />
+
+          <CtaContainer></CtaContainer>
+        </NavLinksWrapMobile>
+      )}
+    </>
   );
 };

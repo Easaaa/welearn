@@ -14,6 +14,16 @@ export const DropDownMenu = styled.div`
   z-index: 888;
   background-color: var(--primary800);
 
+  ${({ isMobile }) =>
+    isMobile &&
+    `
+   position: relative;
+   top: 0;
+   box-shadow: none;
+   padding: 0 5px;
+   width: 100%;
+  `}
+
   h5 {
     position: relative;
     font-weight: 600;

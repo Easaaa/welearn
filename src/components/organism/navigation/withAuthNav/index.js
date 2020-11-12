@@ -6,8 +6,7 @@ import * as ROUTES from 'constants/routes';
 import * as ROLES from 'constants/roles';
 
 import { WithAuthMenu } from '../withAuthMenu';
-import { SkeletonProfileNav } from 'components/atoms/skeleton/profile-nav';
-
+import { MobileNavWithAuth } from '../index';
 import {
   NavWrapper,
   Logo,
@@ -17,13 +16,8 @@ import {
   ProfileMenu,
   ProfilePreview,
   ProfileImg,
-  ProfileName,
-  AddNewBtn,
 } from '../style';
-import ProfileImage from 'assets/profile.png';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import { AiOutlineSetting } from 'react-icons/ai';
-import { MdAdd } from 'react-icons/md';
 
 export const WithAuthNav = () => {
   const { currentUser } = useContext(FirebaseContext);
@@ -46,6 +40,8 @@ export const WithAuthNav = () => {
           </StyledLink>
         </h1>
       </Logo>
+
+      <MobileNavWithAuth />
       <NavLinksWrap>
         <li>
           <StyledLink to={(!currentUser && ROUTES.LANDING) || ROUTES.HOME}>

@@ -12,6 +12,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 export const WithAuthMenu = ({
   props: { isMenuVisible, setIsMenuVisible },
+  isMobile,
 }) => {
   const { firebase } = useContext(FirebaseContext);
   const { userData, userLoad } = useGetUser();
@@ -25,10 +26,10 @@ export const WithAuthMenu = ({
     });
   };
 
-  if (!isMenuVisible) return null;
+  if (!isMenuVisible && !isMobile) return null;
 
   return (
-    <DropDownMenu>
+    <DropDownMenu isMobile={isMobile}>
       <OutsideAlerter toggle={() => setIsMenuVisible(false)}>
         <h5>Settings</h5>
         <ul>
